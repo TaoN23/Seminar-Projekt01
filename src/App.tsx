@@ -1,15 +1,13 @@
 import { Box, Sky } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
+import Playground from "./Playground/Playground"
+
 
 function App() {
 
   return (
     <Canvas>
-      <mesh>
-        <Box>
-          <meshStandardMaterial color={"royalblue"}/>
-        </Box>
-      </mesh>
+      <Playground/>
       <Sky/>
       <ambientLight/>
     </Canvas>
