@@ -5,7 +5,7 @@ function Border() {
         <>
         <group>
             <Box args={[20,.2,20,4,4,4]}>
-                <meshNormalMaterial/>
+               <meshPhongMaterial color={"green"}/>
             </Box>
             <group>
                 <Box args={[20,2,.2,4,4,4]} position={[10,0,0]} rotation={[0,Math.PI/2,0]}>
