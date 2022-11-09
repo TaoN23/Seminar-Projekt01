@@ -1,4 +1,4 @@
-import { Box, Sky } from "@react-three/drei"
+import { Box, OrbitControls, Sky } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import Playground from "./Playground/Playground"
 
@@ -10,6 +10,7 @@ function App() {
       <Playground/>
       <Sky/>
       <ambientLight/>
+      <OrbitControls/>
     </Canvas>
   )
 }
