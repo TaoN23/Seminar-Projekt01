@@ -9,16 +9,16 @@ function Border() {
             </Box>
             <group>
                 <Box args={[20,4,.2,4,4,4]} position={[10,0,0]} rotation={[0,Math.PI/2,0]}>
-                    <meshNormalMaterial/>
+                    <meshPhongMaterial color={"grey"}/>
                 </Box>
                 <Box args={[20,2,.2,4,4,4]} position={[-10,0,0]} rotation={[0,Math.PI/2,0]}>
-                    <meshNormalMaterial/>
+                    <meshPhongMaterial color={"grey"}/>
                 </Box>
                 <Box args={[20,4,.2,4,4,4]} position={[0,0,10]}>
-                    <meshNormalMaterial/>
+                    <meshPhongMaterial color={"grey"}/>
                 </Box>
                 <Box args={[20,2,.2,4,4,4]} position={[0,0,-10]}>
-                    <meshNormalMaterial/>
+                    <meshPhongMaterial color={"grey"}/>
                 </Box>
             </group>
         </group>
