@@ -8,13 +8,13 @@ function Border() {
                <meshPhongMaterial color={"green"}/>
             </Box>
             <group>
-                <Box args={[20,2,.2,4,4,4]} position={[10,0,0]} rotation={[0,Math.PI/2,0]}>
+                <Box args={[20,4,.2,4,4,4]} position={[10,0,0]} rotation={[0,Math.PI/2,0]}>
                     <meshNormalMaterial/>
                 </Box>
                 <Box args={[20,2,.2,4,4,4]} position={[-10,0,0]} rotation={[0,Math.PI/2,0]}>
                     <meshNormalMaterial/>
                 </Box>
-                <Box args={[20,2,.2,4,4,4]} position={[0,0,10]}>
+                <Box args={[20,4,.2,4,4,4]} position={[0,0,10]}>
                     <meshNormalMaterial/>
                 </Box>
                 <Box args={[20,2,.2,4,4,4]} position={[0,0,-10]}>

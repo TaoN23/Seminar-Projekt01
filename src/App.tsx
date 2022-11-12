@@ -10,6 +10,7 @@ function App() {
       <Playground/>
       <Sky/>
       <ambientLight/>
+      
       <OrbitControls/>
     </Canvas>
   )
