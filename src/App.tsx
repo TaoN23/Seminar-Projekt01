@@ -10,6 +10,7 @@ function App() {
       <Playground/>
       <Sky/>
       <ambientLight/>
+      <pointLight position={[5,5,5]} intensity={20}/>
       {
       //position: damit die helper über dem Boden sind und sich nicht überschneiden
       }
