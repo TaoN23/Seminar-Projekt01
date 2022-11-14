@@ -32,11 +32,11 @@ function Obstacles() {
                     {
                         boxes.map((box: JSX.IntrinsicElements['mesh'], index)=>{
                             return(
-                                // ignore Box-error
-                                // @ts-expect-error
-                                <Box key={index} {...box}>
+                                <mesh castShadow receiveShadow key={index} {...box}>
+                                    <boxGeometry/>
                                     <meshPhongMaterial color={"blue"}/>
-                                </Box>
+                                </mesh>
+                                
                             )
                         })
                     }
