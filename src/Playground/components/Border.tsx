@@ -4,7 +4,7 @@ function Border() {
     return ( 
         <>
         <group>
-            <Box args={[20,.2,20,4,4,4]}>
+            <Box receiveShadow args={[20,.2,20,4,4,4]}>
                <meshPhongMaterial color={"green"}/>
             </Box>
             <group>

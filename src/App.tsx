@@ -1,4 +1,4 @@
-import { Box, OrbitControls, PerspectiveCamera, Sky } from "@react-three/drei"
+import { Box, OrbitControls, PerspectiveCamera, Sky, Stats } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import Camera from "./Camera/Camera"
 import Playground from "./Playground/Playground"
@@ -7,11 +7,11 @@ import Playground from "./Playground/Playground"
 function App() {
 
   return (
-    <Canvas>
+    <Canvas shadows>
       <Playground/>
       <Sky/>
       <ambientLight/>
-      <pointLight position={[5,5,5]} intensity={20}/>
+      <pointLight castShadow position={[5,5,5]} intensity={20}/>
       {
         // Helper und Licht muss noch in ein eigenes component
         //position: damit die helper über dem Boden sind und sich nicht überschneiden
