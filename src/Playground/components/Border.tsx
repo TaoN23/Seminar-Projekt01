@@ -4,9 +4,11 @@ function Border() {
     return ( 
         <>
         <group>
-            <Box args={[20,.2,20,4,4,4]}>
+            <mesh receiveShadow>
+                <boxGeometry args={[20,.2,20,4,4,4]}/>
                <meshPhongMaterial color={"green"}/>
-            </Box>
+            </mesh>
+            
             <group>
                 <Box args={[20,4,.2,4,4,4]} position={[10,0,0]} rotation={[0,Math.PI/2,0]}>
                     <meshPhongMaterial color={"grey"}/>

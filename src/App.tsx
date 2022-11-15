@@ -6,11 +6,11 @@ import Playground from "./Playground/Playground"
 function App() {
 
   return (
-    <Canvas>
+    <Canvas shadows>
       <Playground/>
       <Sky/>
       <ambientLight/>
-      <pointLight position={[5,5,5]} intensity={20}/>
+      <pointLight position={[5,5,5]} intensity={10}/>
       {
       //position: damit die helper über dem Boden sind und sich nicht überschneiden
       }
