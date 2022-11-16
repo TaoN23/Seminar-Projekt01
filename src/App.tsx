@@ -11,7 +11,7 @@ function App() {
       <Playground/>
       <Sky/>
       <ambientLight/>
-      <pointLight castShadow position={[5,5,5]} intensity={20}/>
+      <pointLight castShadow position={[5,5,5]} intensity={10}/>
       {
         // Helper und Licht muss noch in ein eigenes component
         //position: damit die helper über dem Boden sind und sich nicht überschneiden

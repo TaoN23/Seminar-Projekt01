@@ -42,6 +42,7 @@ function Obstacles() {
                             </mesh>
                         );
                     })}
+
                 </group>
                 <Shelter />
             </group>
