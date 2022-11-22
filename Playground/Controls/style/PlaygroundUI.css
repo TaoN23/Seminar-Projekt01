@@ -1,0 +1,16 @@
+#root div{
+    transform: translate3d(0px,0px,0px) !important;
+}
+
+.playground-ui{
+    position: relative;
+    
+}
+
+.playground-ui select{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    height: 3%;
+    width: 8rem;
+}
