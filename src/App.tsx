@@ -1,6 +1,6 @@
 import { Box, OrbitControls, PerspectiveCamera, Sky, Stats } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import Camera from "./Camera/Camera"
+import Camera from "./Playground/Controls/Camera/Camera"
 import Playground from "./Playground/Playground"
 
 
@@ -18,7 +18,6 @@ function App() {
       }
       <axesHelper args={[30]} position={[0,0.12,0]}/>
       <gridHelper args={[40,40,40]} position={[0,0.11,0]}/>
-      <Camera/>
     </Canvas>
   )
 }
