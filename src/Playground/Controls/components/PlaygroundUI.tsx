@@ -6,7 +6,7 @@ function PlaygroundUI({controlType, setControlType}: {controlType: string, setCo
     const handleControlChange = (event: React.ChangeEvent<HTMLSelectElement>) =>{
         setControlType(event.target.value);
     }
-    
+
     return ( <>
     {/**
      * using <Html from drei, because you cant create a portal inside the Canvas, that renders outside
