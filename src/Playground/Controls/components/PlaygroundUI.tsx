@@ -5,9 +5,13 @@ import "../style/PlaygroundUI.css";
 function PlaygroundUI({
     controlType,
     setControlType,
+    shadowsActive,
+    setShadowsActive
 }: {
     controlType: string;
     setControlType: Function;
+    shadowsActive: boolean;
+    setShadowsActive: Function;
 }) {
 
     const [isVisible, setIsVisible] = useState(false);
@@ -21,6 +25,11 @@ function PlaygroundUI({
     const handleMenuToogle = () => {
         setIsVisible((prev) => !prev);
     };
+
+    const handleShadowsCheckboxChange = () =>{
+        setShadowsActive();
+        
+    } 
 
     return (
         <>
@@ -60,7 +69,7 @@ function PlaygroundUI({
                         </h3>
                         <div className="playground-ui__shadows">
                             <label>
-                            <input type="checkbox" id="shadows"/>
+                            <input type="checkbox" id="shadows" checked={shadowsActive} onChange={handleShadowsCheckboxChange}/>
                                 shadows
                             </label>
                             <label>
