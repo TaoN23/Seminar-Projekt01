@@ -12,6 +12,7 @@ function Playground() {
         
         setShadowsActive(prev => !prev);
     }
+    
 
     return ( 
         <>

@@ -1,6 +1,7 @@
 import { Box, ContactShadows } from "@react-three/drei";
 import { Vector3 } from "three";
 import Shelter from "./Shelter";
+import React from "react";
 
 const boxes = [
     {
@@ -22,6 +23,7 @@ const boxes = [
 ];
 
 function Obstacles() {
+    
     return (
         <>
             <group>
@@ -50,4 +52,5 @@ function Obstacles() {
     );
 }
 
-export default Obstacles;
+// Memo to prevent re-render, when shadows are toogled
+export default React.memo(Obstacles);
