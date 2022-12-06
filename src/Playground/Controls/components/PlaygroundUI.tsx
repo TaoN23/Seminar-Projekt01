@@ -8,7 +8,9 @@ function PlaygroundUI({
     shadowsActive,
     setShadowsActive,
     helperActive,
-    setHelperActive
+    setHelperActive,
+    fov,
+    setFov
 }: {
     controlType: string;
     setControlType: Function;
@@ -16,6 +18,8 @@ function PlaygroundUI({
     setShadowsActive: Function;
     helperActive: {grid: boolean; axis: boolean}
     setHelperActive: Function;
+    fov: number;
+    setFov: Function
 }) {
 
     const [isVisible, setIsVisible] = useState(false);
@@ -42,6 +46,10 @@ function PlaygroundUI({
     const handleAxisHelperCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
         setHelperActive({grid: null, axis: event.target.checked});
 
+    }
+
+    const handleFovSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setFov(event.target.value);
     }
 
     return (
@@ -105,6 +113,19 @@ function PlaygroundUI({
                             <input type="checkbox" id="axishelper" checked={helperActive.axis} onChange={handleAxisHelperCheckboxChange}/>
                                 Axis
                             </label>
+                        </div>
+                    </div>
+
+                    <div className="playground-ui__fov">
+                        <h3>
+                            fov
+                        </h3>
+                        <div>
+                            <label>
+                                <input type="range" id="fov" min={50} max={120} value={fov} onChange={handleFovSliderChange} step={1}/>
+                                fov: {fov}
+                            </label>
+                            
                         </div>
                     </div>
                 </div>

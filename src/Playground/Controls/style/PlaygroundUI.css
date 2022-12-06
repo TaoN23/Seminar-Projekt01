@@ -60,3 +60,8 @@
     height: auto;
     margin-left: 5px;
 }
+
+.playground-ui__fov input{
+    height: 20%;
+    width: 100%;
+}

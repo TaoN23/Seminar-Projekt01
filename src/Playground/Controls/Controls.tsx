@@ -14,10 +14,16 @@ function Controls({
     setHelperActive: Function;
 }) {
     const [controlType, setControlType] = useState("First Person");
+    const [fov, setFov] = useState(80);
+
+
+    const fovChange = (newFov: number) =>{
+        setFov(newFov);
+    }
 
     return (
         <>
-            <Camera controlType={controlType} />
+            <Camera controlType={controlType} fov={fov}/>
             <PlaygroundUI
                 controlType={controlType}
                 setControlType={setControlType}
@@ -25,6 +31,8 @@ function Controls({
                 setShadowsActive={setShadowsActive}
                 helperActive={helperActive}
                 setHelperActive={setHelperActive}
+                fov={fov}
+                setFov={fovChange}
             />
         </>
     );

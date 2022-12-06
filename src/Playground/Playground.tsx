@@ -9,6 +9,7 @@ function Playground() {
     const [shadowsActive, setShadowsActive] = useState(true);
     const [helperActive, setHelperActive] = useState({grid: true, axis: true});
 
+
     const shadowsToogle = () =>{
         console.log(shadowsActive);
         
@@ -22,8 +23,8 @@ function Playground() {
             }
             return {grid: grid, axis: prev.axis}
         })
-        
     }
+
     
 
     return ( 

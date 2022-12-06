@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { Euler, Vector3 } from "three";
 import React from "react";
 
-function Camera({controlType}: {controlType: string}) {
+function Camera({controlType, fov}: {controlType: string, fov: number}) {
     const camera = useRef();
     const cameraOrientation = useRef({position: [0,1,5], rotation: [0,0,0]});
     
@@ -15,6 +15,7 @@ function Camera({controlType}: {controlType: string}) {
                 position={new Vector3(...cameraOrientation.current.position)}
                 rotation={new Euler(...cameraOrientation.current.rotation)}
                 ref={camera}
+                fov={fov}
                 >
             </PerspectiveCamera>
 
