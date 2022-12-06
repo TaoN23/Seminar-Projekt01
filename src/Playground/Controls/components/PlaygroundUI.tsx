@@ -10,18 +10,17 @@ function PlaygroundUI({
     helperActive,
     setHelperActive,
     fov,
-    setFov
+    setFov,
 }: {
     controlType: string;
     setControlType: Function;
     shadowsActive: boolean;
     setShadowsActive: Function;
-    helperActive: {grid: boolean; axis: boolean}
+    helperActive: { grid: boolean; axis: boolean };
     setHelperActive: Function;
     fov: number;
-    setFov: Function
+    setFov: Function;
 }) {
-
     const [isVisible, setIsVisible] = useState(false);
 
     const handleControlChange = (
@@ -34,23 +33,27 @@ function PlaygroundUI({
         setIsVisible((prev) => !prev);
     };
 
-    const handleShadowsCheckboxChange = () =>{
+    const handleShadowsCheckboxChange = () => {
         setShadowsActive();
-    } 
+    };
 
-    const handleGridHelperCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        setHelperActive({grid: event.target.checked, axis: null});
-        
-    }
-    
-    const handleAxisHelperCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        setHelperActive({grid: null, axis: event.target.checked});
+    const handleGridHelperCheckboxChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setHelperActive({ grid: event.target.checked, axis: null });
+    };
 
-    }
+    const handleAxisHelperCheckboxChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        setHelperActive({ grid: null, axis: event.target.checked });
+    };
 
-    const handleFovSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFovSliderChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
         setFov(event.target.value);
-    }
+    };
 
     return (
         <>
@@ -72,9 +75,7 @@ function PlaygroundUI({
                     }
                 >
                     <div className="playground-ui__cameraMode">
-                        <h3>
-                            Camera mode
-                        </h3>
+                        <h3>Camera mode</h3>
                         <select
                             itemID={controlType}
                             onChange={handleControlChange}
@@ -85,47 +86,63 @@ function PlaygroundUI({
                     </div>
 
                     <div className="playground-ui__shadows">
-                        <h3>
-                            Shadows
-                        </h3>
+                        <h3>Shadows</h3>
                         <div>
                             <label>
-                            <input type="checkbox" id="shadows" checked={shadowsActive} onChange={handleShadowsCheckboxChange}/>
+                                <input
+                                    type="checkbox"
+                                    id="shadows"
+                                    checked={shadowsActive}
+                                    onChange={handleShadowsCheckboxChange}
+                                />
                                 shadows
                             </label>
                             <label>
-                            <input type="checkbox" id="contact-shadows"/>
+                                <input type="checkbox" id="contact-shadows" />
                                 contact-shadows
                             </label>
                         </div>
                     </div>
 
                     <div className="playground-ui__helper">
-                        <h3>
-                            Helper
-                        </h3>
+                        <h3>Helper</h3>
                         <div>
                             <label>
-                            <input type="checkbox" id="gridhelper" checked={helperActive.grid} onChange={handleGridHelperCheckboxChange}/>
+                                <input
+                                    type="checkbox"
+                                    id="gridhelper"
+                                    checked={helperActive.grid}
+                                    onChange={handleGridHelperCheckboxChange}
+                                />
                                 Grid
                             </label>
                             <label>
-                            <input type="checkbox" id="axishelper" checked={helperActive.axis} onChange={handleAxisHelperCheckboxChange}/>
+                                <input
+                                    type="checkbox"
+                                    id="axishelper"
+                                    checked={helperActive.axis}
+                                    onChange={handleAxisHelperCheckboxChange}
+                                />
                                 Axis
                             </label>
                         </div>
                     </div>
 
                     <div className="playground-ui__fov">
-                        <h3>
-                            fov
-                        </h3>
+                        <h3>fov</h3>
                         <div>
                             <label>
-                                <input type="range" id="fov" min={50} max={120} value={fov} onChange={handleFovSliderChange} step={1}/>
+                                <input
+                                    type="range"
+                                    id="fov"
+                                    min={50}
+                                    max={120}
+                                    value={fov}
+                                    onChange={handleFovSliderChange}
+                                    step={1}
+                                />
                                 fov: {fov}
                             </label>
-                            
                         </div>
                     </div>
                 </div>

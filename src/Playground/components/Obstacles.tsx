@@ -23,7 +23,6 @@ const boxes = [
 ];
 
 function Obstacles() {
-    
     return (
         <>
             <group>
@@ -32,7 +31,7 @@ function Obstacles() {
                     receiveShadow
                     args={[2, 2, 2, 4, 4, 4]}
                     position={[0, 1, 0]}
-                    >
+                >
                     <meshPhongMaterial color={"royalblue"} />
                 </Box>
                 <group>
@@ -44,7 +43,6 @@ function Obstacles() {
                             </mesh>
                         );
                     })}
-
                 </group>
                 <Shelter />
             </group>
