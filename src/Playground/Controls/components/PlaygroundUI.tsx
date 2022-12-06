@@ -6,12 +6,16 @@ function PlaygroundUI({
     controlType,
     setControlType,
     shadowsActive,
-    setShadowsActive
+    setShadowsActive,
+    helperActive,
+    setHelperActive
 }: {
     controlType: string;
     setControlType: Function;
     shadowsActive: boolean;
     setShadowsActive: Function;
+    helperActive: {grid: boolean; axis: boolean}
+    setHelperActive: Function;
 }) {
 
     const [isVisible, setIsVisible] = useState(false);
@@ -28,8 +32,17 @@ function PlaygroundUI({
 
     const handleShadowsCheckboxChange = () =>{
         setShadowsActive();
-        
     } 
+
+    const handleGridHelperCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
+        setHelperActive({grid: event.target.checked, axis: null});
+        
+    }
+    
+    const handleAxisHelperCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
+        setHelperActive({grid: null, axis: event.target.checked});
+
+    }
 
     return (
         <>
@@ -67,7 +80,7 @@ function PlaygroundUI({
                         <h3>
                             Shadows
                         </h3>
-                        <div className="playground-ui__shadows">
+                        <div>
                             <label>
                             <input type="checkbox" id="shadows" checked={shadowsActive} onChange={handleShadowsCheckboxChange}/>
                                 shadows
@@ -76,7 +89,22 @@ function PlaygroundUI({
                             <input type="checkbox" id="contact-shadows"/>
                                 contact-shadows
                             </label>
-                        
+                        </div>
+                    </div>
+
+                    <div className="playground-ui__helper">
+                        <h3>
+                            Helper
+                        </h3>
+                        <div>
+                            <label>
+                            <input type="checkbox" id="gridhelper" checked={helperActive.grid} onChange={handleGridHelperCheckboxChange}/>
+                                Grid
+                            </label>
+                            <label>
+                            <input type="checkbox" id="axishelper" checked={helperActive.axis} onChange={handleAxisHelperCheckboxChange}/>
+                                Axis
+                            </label>
                         </div>
                     </div>
                 </div>

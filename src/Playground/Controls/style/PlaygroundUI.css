@@ -55,7 +55,7 @@
 }
 
 
-.playground-ui__shadows input{
+.playground-ui__shadows input, .playground-ui__helper input{
     width: 10%;
     height: auto;
     margin-left: 5px;

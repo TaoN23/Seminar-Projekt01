@@ -10,13 +10,6 @@ function App() {
     <Canvas shadows>
       <Playground/>
       <Sky/>
-      
-      {
-        // Helper und Licht muss noch in ein eigenes component
-        //position: damit die helper über dem Boden sind und sich nicht überschneiden
-      }
-      <axesHelper args={[30]} position={[0,0.12,0]}/>
-      <gridHelper args={[40,40,40]} position={[0,0.11,0]}/>
     </Canvas>
   )
 }
