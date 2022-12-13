@@ -1,15 +1,8 @@
-import {
-    Box,
-    OrbitControls,
-    PerspectiveCamera,
-    Sky,
-    Stats,
-} from '@react-three/drei';
+import { Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import Camera from './Playground/Controls/Camera/Camera';
 import Playground from './Playground/Playground';
 
-function App() {
+function App(): JSX.Element {
     return (
         <Canvas shadows>
             <Playground />

@@ -25,4 +25,4 @@ jobs:
         run: npm ci
       
       - name: "run eslint & prettier"
-        run:  npx eslint src/
+        run:  npx eslint src/ --fix

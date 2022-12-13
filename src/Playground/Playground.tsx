@@ -5,20 +5,24 @@ import Lights from './components/Lights';
 import Obstacles from './components/Obstacles';
 import Controls from './Controls/Controls';
 
-function Playground() {
+function Playground(): JSX.Element {
     const [shadowsActive, setShadowsActive] = useState(true);
     const [helperActive, setHelperActive] = useState({
         grid: true,
         axis: true,
     });
 
-    const shadowsToogle = () => {
-        console.log(shadowsActive);
-
+    const shadowsToogle = (): void => {
         setShadowsActive((prev) => !prev);
     };
 
-    const helperToogle = ({ grid, axis }: { grid: boolean; axis: boolean }) => {
+    const helperToogle = ({
+        grid,
+        axis,
+    }: {
+        grid: boolean;
+        axis: boolean;
+    }): void => {
         setHelperActive((prev) => {
             if (grid === null) {
                 return { grid: prev.grid, axis };

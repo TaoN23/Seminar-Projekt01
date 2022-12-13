@@ -1,22 +1,26 @@
-import { Box, ContactShadows } from '@react-three/drei';
+import { Box } from '@react-three/drei';
 import { Vector3 } from 'three';
 import React from 'react';
 import Shelter from './Shelter';
 
 const boxes = [
     {
+        id: 0,
         position: new Vector3(3, 0, 5),
         scale: new Vector3(4, 1, 2),
     },
     {
+        id: 1,
         position: new Vector3(-3, 0, -5),
         scale: new Vector3(4, 1, 2),
     },
     {
+        id: 2,
         position: new Vector3(5, 0, -5),
         scale: new Vector3(2, 0.5, 1),
     },
     {
+        id: 3,
         position: new Vector3(-5, 0, 5),
         scale: new Vector3(2, 0.5, 1),
     },
@@ -24,7 +28,7 @@ const boxes = [
 
 /* eslint-disable react/jsx-props-no-spreading */
 
-function Obstacles() {
+function Obstacles(): JSX.Element {
     return (
         <>
             <group>
@@ -37,9 +41,14 @@ function Obstacles() {
                     <meshPhongMaterial color="royalblue" />
                 </Box>
                 <group>
-                    {boxes.map((box: JSX.IntrinsicElements['mesh'], index) => {
+                    {boxes.map((box: JSX.IntrinsicElements['mesh']) => {
                         return (
-                            <mesh castShadow receiveShadow key={index} {...box}>
+                            <mesh
+                                castShadow
+                                receiveShadow
+                                key={box.id}
+                                {...box}
+                            >
                                 <boxGeometry />
                                 <meshPhongMaterial color="blue" />
                             </mesh>

@@ -1,6 +1,6 @@
 import { Box } from '@react-three/drei';
 
-function Shelter() {
+function Shelter(): JSX.Element {
     return (
         <>
             <group>

@@ -1,4 +1,4 @@
-function Lights({ isActive }: { isActive: boolean }) {
+function Lights({ isActive }: { isActive: boolean }): JSX.Element {
     return (
         <>
             <ambientLight />

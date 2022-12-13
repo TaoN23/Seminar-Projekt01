@@ -2,6 +2,8 @@ import { Html } from '@react-three/drei';
 import React, { useState } from 'react';
 import '../style/PlaygroundUI.css';
 
+/* eslint-disable @typescript-eslint/ban-types */
+
 function PlaygroundUI({
     controlType,
     setControlType,
@@ -20,38 +22,38 @@ function PlaygroundUI({
     setHelperActive: Function;
     fov: number;
     setFov: Function;
-}) {
+}): JSX.Element {
     const [isVisible, setIsVisible] = useState(false);
 
     const handleControlChange = (
         event: React.ChangeEvent<HTMLSelectElement>
-    ) => {
+    ): void => {
         setControlType(event.target.value);
     };
 
-    const handleMenuToogle = () => {
+    const handleMenuToogle = (): void => {
         setIsVisible((prev) => !prev);
     };
 
-    const handleShadowsCheckboxChange = () => {
+    const handleShadowsCheckboxChange = (): void => {
         setShadowsActive();
     };
 
     const handleGridHelperCheckboxChange = (
         event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    ): void => {
         setHelperActive({ grid: event.target.checked, axis: null });
     };
 
     const handleAxisHelperCheckboxChange = (
         event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    ): void => {
         setHelperActive({ grid: null, axis: event.target.checked });
     };
 
     const handleFovSliderChange = (
         event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    ): void => {
         setFov(event.target.value);
     };
 
@@ -62,6 +64,7 @@ function PlaygroundUI({
              */}
             <Html as="div" className="playground-ui__wrapper">
                 <button
+                    type="button"
                     onClick={handleMenuToogle}
                     className="playground-ui__toogleButton"
                 >

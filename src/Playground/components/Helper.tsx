@@ -1,4 +1,8 @@
-function Helper({ isActive }: { isActive: { grid: boolean; axis: boolean } }) {
+function Helper({
+    isActive,
+}: {
+    isActive: { grid: boolean; axis: boolean };
+}): JSX.Element {
     return (
         <>
             {
