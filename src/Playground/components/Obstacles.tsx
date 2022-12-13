@@ -27,6 +27,7 @@ const boxes = [
 ];
 
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/no-array-index-key */
 
 function Obstacles(): JSX.Element {
     return (
@@ -41,14 +42,9 @@ function Obstacles(): JSX.Element {
                     <meshPhongMaterial color="royalblue" />
                 </Box>
                 <group>
-                    {boxes.map((box: JSX.IntrinsicElements['mesh']) => {
+                    {boxes.map((box: JSX.IntrinsicElements['mesh'], index) => {
                         return (
-                            <mesh
-                                castShadow
-                                receiveShadow
-                                key={box.id}
-                                {...box}
-                            >
+                            <mesh castShadow receiveShadow key={index} {...box}>
                                 <boxGeometry />
                                 <meshPhongMaterial color="blue" />
                             </mesh>
