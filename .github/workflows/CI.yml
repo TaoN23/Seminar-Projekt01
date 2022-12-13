@@ -26,3 +26,4 @@ jobs:
       
       - name: "run eslint & prettier"
         run:  npx eslint src/ --fix
+        
