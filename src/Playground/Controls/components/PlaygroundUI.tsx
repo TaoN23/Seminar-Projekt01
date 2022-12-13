@@ -1,6 +1,6 @@
-import { Html } from "@react-three/drei";
-import React, { useState } from "react";
-import "../style/PlaygroundUI.css";
+import { Html } from '@react-three/drei';
+import React, { useState } from 'react';
+import '../style/PlaygroundUI.css';
 
 function PlaygroundUI({
     controlType,
@@ -65,13 +65,13 @@ function PlaygroundUI({
                     onClick={handleMenuToogle}
                     className="playground-ui__toogleButton"
                 >
-                    {isVisible ? ">" : "<"}
+                    {isVisible ? '>' : '<'}
                 </button>
                 <div
                     className={
                         isVisible
-                            ? "playground-ui__enabled"
-                            : "playground-ui__disabled"
+                            ? 'playground-ui__enabled'
+                            : 'playground-ui__disabled'
                     }
                 >
                     <div className="playground-ui__cameraMode">

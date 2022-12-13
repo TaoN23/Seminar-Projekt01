@@ -21,8 +21,10 @@
     },
     "plugins": ["react", "@typescript-eslint", "react-hooks"],
     "rules": {
+         "react/no-unknown-property": "off",
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": ["error"],
+        "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension": [
             "warn",
             {
@@ -48,13 +50,23 @@
         "max-len": [
             "warn",
             {
-                "code": 80
+                "code": 200
             }
         ],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "import/prefer-default-export": "off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "jsx-a11y/label-has-associated-control": ["error", {
+         "required": {
+           "some": ["nesting", "id"]
+         }
+       }],
+       "jsx-a11y/label-has-for": ["error", {
+         "required": {
+           "some": ["nesting", "id"]
+         }
+       }]
     },
     "settings": {
         "import/resolver": {

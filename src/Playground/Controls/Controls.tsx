@@ -1,6 +1,6 @@
-import { useState } from "react";
-import Camera from "./Camera/Camera";
-import PlaygroundUI from "./components/PlaygroundUI";
+import { useState } from 'react';
+import Camera from './Camera/Camera';
+import PlaygroundUI from './components/PlaygroundUI';
 
 function Controls({
     shadowsActive,
@@ -13,17 +13,16 @@ function Controls({
     helperActive: { grid: boolean; axis: boolean };
     setHelperActive: Function;
 }) {
-    const [controlType, setControlType] = useState("First Person");
+    const [controlType, setControlType] = useState('First Person');
     const [fov, setFov] = useState(80);
 
-
-    const fovChange = (newFov: number) =>{
+    const fovChange = (newFov: number) => {
         setFov(newFov);
-    }
+    };
 
     return (
         <>
-            <Camera controlType={controlType} fov={fov}/>
+            <Camera controlType={controlType} fov={fov} />
             <PlaygroundUI
                 controlType={controlType}
                 setControlType={setControlType}

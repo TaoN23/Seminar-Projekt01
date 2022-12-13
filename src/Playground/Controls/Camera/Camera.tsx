@@ -1,7 +1,6 @@
-import { OrbitControls, PerspectiveCamera, Text } from "@react-three/drei";
-import { useRef, useState } from "react";
-import { Euler, Vector3 } from "three";
-import React from "react";
+import { OrbitControls, PerspectiveCamera, Text } from '@react-three/drei';
+import React, { useRef, useState } from 'react';
+import { Euler, Vector3 } from 'three';
 
 function Camera({ controlType, fov }: { controlType: string; fov: number }) {
     const camera = useRef();
@@ -18,9 +17,9 @@ function Camera({ controlType, fov }: { controlType: string; fov: number }) {
                 rotation={new Euler(...cameraOrientation.current.rotation)}
                 ref={camera}
                 fov={fov}
-            ></PerspectiveCamera>
+            />
 
-            {controlType == "Orbit" && <OrbitControls />}
+            {controlType == 'Orbit' && <OrbitControls />}
         </>
     );
 }

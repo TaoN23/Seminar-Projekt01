@@ -2,7 +2,7 @@ function Helper({ isActive }: { isActive: { grid: boolean; axis: boolean } }) {
     return (
         <>
             {
-                //position: damit die helper über dem Boden sind und sich nicht überschneiden
+                // position: damit die helper über dem Boden sind und sich nicht überschneiden
             }
             {isActive.grid && (
                 <gridHelper args={[40, 40, 40]} position={[0, 0.11, 0]} />
