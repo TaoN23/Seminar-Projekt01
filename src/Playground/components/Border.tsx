@@ -1,6 +1,6 @@
 import { Box } from '@react-three/drei';
 
-function Border() {
+function Border(): JSX.Element {
     return (
         <>
             <group>
