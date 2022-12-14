@@ -5,22 +5,18 @@ import Shelter from './Shelter';
 
 const boxes = [
     {
-        id: 0,
         position: new Vector3(3, 0, 5),
         scale: new Vector3(4, 1, 2),
     },
     {
-        id: 1,
         position: new Vector3(-3, 0, -5),
         scale: new Vector3(4, 1, 2),
     },
     {
-        id: 2,
         position: new Vector3(5, 0, -5),
         scale: new Vector3(2, 0.5, 1),
     },
     {
-        id: 3,
         position: new Vector3(-5, 0, 5),
         scale: new Vector3(2, 0.5, 1),
     },
