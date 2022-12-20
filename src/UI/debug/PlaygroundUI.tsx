@@ -23,14 +23,14 @@ function PlaygroundUI({
     dispatchCameraSettings: Function;
 }): JSX.Element {
 
-    
+
     const [isVisible, setIsVisible] = useState(false);
 
     const handleControlChange = (
         event: React.ChangeEvent<HTMLSelectElement>
     ): void => {
         dispatchCameraSettings({
-            type: CAMERA_ACTIONS.SET_FOV,
+            type: CAMERA_ACTIONS.SET_CONTROLTYPE,
             payload: event.target.value,
         });
     };

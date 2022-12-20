@@ -4,12 +4,12 @@ import PlaygroundUI from '../UI/debug/PlaygroundUI';
 /* eslint-disable @typescript-eslint/ban-types */
 
 export enum CAMERA_ACTIONS {
-    SET_CONTROLTYPE = 'SET_CONTROLTYPE',
-    SET_FOV = 'SET_FOV',
+    SET_CONTROLTYPE,
+    SET_FOV,
 }
 
 type Action = {
-    action: CAMERA_ACTIONS;
+    type: CAMERA_ACTIONS;
     payload?: any;
 };
 
@@ -18,13 +18,15 @@ type CameraSettings = {
     fov: number;
 };
 
-function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {
-    switch (action.action) {
+function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {    
+    const { type, payload } = action;
+
+    switch (type) {
         case CAMERA_ACTIONS.SET_CONTROLTYPE:
             console.log("dipatch");
-            return { ...state, controlType: action.payload };
+            return { ...state, controlType: payload };
         case CAMERA_ACTIONS.SET_FOV:
-            return { ...state, fov: action.payload };
+            return { ...state, fov: payload };
         default:
             return state;
     }
