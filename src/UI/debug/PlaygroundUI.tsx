@@ -1,22 +1,19 @@
 import { Html } from '@react-three/drei';
 import React, { useState } from 'react';
 import { CAMERA_ACTIONS, CameraSettings } from '../../config/types/Camera/cameraTypes';
+import { PlaygroundSettings, PLAYGROUND_SETTINGS_ACTIONS } from '../../Playground/Playground';
 import './style/PlaygroundUI.css';
 
 /* eslint-disable @typescript-eslint/ban-types */
 
 function PlaygroundUI({
-    shadowsActive,
-    setShadowsActive,
-    helperActive,
-    setHelperActive,
+    playgroundSettings,
+    dispatchPlaygroundSettings,
     cameraSettings,
     dispatchCameraSettings,
 }: {
-    shadowsActive: boolean;
-    setShadowsActive: Function;
-    helperActive: { grid: boolean; axis: boolean };
-    setHelperActive: Function;
+    playgroundSettings: PlaygroundSettings,
+    dispatchPlaygroundSettings: Function,
     cameraSettings: CameraSettings;
     dispatchCameraSettings: Function;
 }): JSX.Element {
@@ -38,7 +35,7 @@ function PlaygroundUI({
     };
 
     const handleShadowsCheckboxChange = (): void => {
-        setShadowsActive();
+        dispatchPlaygroundSettings({type: PLAYGROUND_SETTINGS_ACTIONS.TOOGLE_SHADOWS})
     };
 
     const handleGridHelperCheckboxChange = (
@@ -100,7 +97,7 @@ function PlaygroundUI({
                                 <input
                                     type="checkbox"
                                     id="shadows"
-                                    checked={shadowsActive}
+                                    checked={playgroundSettings.shadowsActive}
                                     onChange={handleShadowsCheckboxChange}
                                 />
                                 shadows
@@ -119,7 +116,7 @@ function PlaygroundUI({
                                 <input
                                     type="checkbox"
                                     id="gridhelper"
-                                    checked={helperActive.grid}
+                                    checked={playgroundSettings.helperActive.grid}
                                     onChange={handleGridHelperCheckboxChange}
                                 />
                                 Grid
@@ -128,7 +125,7 @@ function PlaygroundUI({
                                 <input
                                     type="checkbox"
                                     id="axishelper"
-                                    checked={helperActive.axis}
+                                    checked={playgroundSettings.helperActive.axis}
                                     onChange={handleAxisHelperCheckboxChange}
                                 />
                                 Axis

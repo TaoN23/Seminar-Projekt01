@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import Camera from './Camera/Camera';
 import PlaygroundUI from '../UI/debug/PlaygroundUI';
 import { CameraSettings, Action, CAMERA_ACTIONS } from '../config/types/Camera/cameraTypes';
+import { PlaygroundSettings } from '../Playground/Playground';
 /* eslint-disable @typescript-eslint/ban-types */
 
 
@@ -20,15 +21,11 @@ function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {
 }
 
 function Controls({
-    shadowsActive,
-    setShadowsActive,
-    helperActive,
-    setHelperActive,
+    playgroundSettings,
+    dispatchPlaygroundSettings
 }: {
-    shadowsActive: boolean;
-    setShadowsActive: Function;
-    helperActive: { grid: boolean; axis: boolean };
-    setHelperActive: Function;
+    playgroundSettings : PlaygroundSettings;
+    dispatchPlaygroundSettings: Function;
 }): JSX.Element {
     const [cameraSettings, dispatchCameraSettings] = useReducer(
         dispatchCamera,
@@ -42,12 +39,10 @@ function Controls({
                    fov={cameraSettings.fov}
             />
             <PlaygroundUI
-                dispatchCameraSettings={dispatchCameraSettings}
-                shadowsActive={shadowsActive}
-                setShadowsActive={setShadowsActive}
-                helperActive={helperActive}
-                setHelperActive={setHelperActive}
                 cameraSettings={cameraSettings}
+                dispatchCameraSettings={dispatchCameraSettings}
+                playgroundSettings={playgroundSettings}
+                dispatchPlaygroundSettings={dispatchPlaygroundSettings}
             />
         </>
     );
