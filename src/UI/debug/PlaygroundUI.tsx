@@ -1,25 +1,23 @@
 import { Html } from '@react-three/drei';
 import React, { useState } from 'react';
-import { CAMERA_ACTIONS } from '../config/types/Camera/cameraTypes'
+import { CAMERA_ACTIONS, CameraSettings } from '../config/types/Camera/cameraTypes'
 import './style/PlaygroundUI.css';
 
 /* eslint-disable @typescript-eslint/ban-types */
 
 function PlaygroundUI({
-    controlType,
     shadowsActive,
     setShadowsActive,
     helperActive,
     setHelperActive,
-    fov,
+    cameraSettings,
     dispatchCameraSettings,
 }: {
-    controlType: string;
     shadowsActive: boolean;
     setShadowsActive: Function;
     helperActive: { grid: boolean; axis: boolean };
     setHelperActive: Function;
-    fov: number;
+    cameraSettings: CameraSettings;
     dispatchCameraSettings: Function;
 }): JSX.Element {
 
@@ -87,7 +85,7 @@ function PlaygroundUI({
                     <div className="playground-ui__cameraMode">
                         <h3>Camera mode</h3>
                         <select
-                            itemID={controlType}
+                            itemID={cameraSettings.controlType}
                             onChange={handleControlChange}
                         >
                             <option>First Person</option>
@@ -147,7 +145,7 @@ function PlaygroundUI({
                                     id="fov"
                                     min={50}
                                     max={120}
-                                    value={fov}
+                                    value={cameraSettings.fov}
                                     onChange={handleFovSliderChange}
                                     step={1}
                                 />

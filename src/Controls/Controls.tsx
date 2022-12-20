@@ -38,17 +38,15 @@ function Controls({
     return (
         <>
             <Camera
-                controlType={cameraSettings.controlType}
-                fov={cameraSettings.fov}
+                settings={cameraSettings}
             />
             <PlaygroundUI
-                controlType={cameraSettings.controlType}
                 dispatchCameraSettings={dispatchCameraSettings}
                 shadowsActive={shadowsActive}
                 setShadowsActive={setShadowsActive}
                 helperActive={helperActive}
                 setHelperActive={setHelperActive}
-                fov={cameraSettings.fov}
+                cameraSettings={cameraSettings}
             />
         </>
     );
