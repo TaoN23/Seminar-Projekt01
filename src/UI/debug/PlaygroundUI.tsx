@@ -1,6 +1,6 @@
 import { Html } from '@react-three/drei';
 import React, { useState } from 'react';
-import { CAMERA_ACTIONS } from '../../Controls/Controls';
+import { CAMERA_ACTIONS } from '../config/types/Camera/cameraTypes'
 import './style/PlaygroundUI.css';
 
 /* eslint-disable @typescript-eslint/ban-types */

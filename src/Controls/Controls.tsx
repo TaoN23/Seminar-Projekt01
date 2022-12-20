@@ -1,22 +1,9 @@
 import { useReducer } from 'react';
 import Camera from './Camera/Camera';
 import PlaygroundUI from '../UI/debug/PlaygroundUI';
+import { CameraSettings, Action, CAMERA_ACTIONS } from '../config/types/Camera/cameraTypes';
 /* eslint-disable @typescript-eslint/ban-types */
 
-export enum CAMERA_ACTIONS {
-    SET_CONTROLTYPE,
-    SET_FOV,
-}
-
-type Action = {
-    type: CAMERA_ACTIONS;
-    payload?: any;
-};
-
-type CameraSettings = {
-    controlType: string;
-    fov: number;
-};
 
 function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {    
     const { type, payload } = action;
