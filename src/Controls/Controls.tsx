@@ -21,6 +21,7 @@ type CameraSettings = {
 function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {
     switch (action.action) {
         case CAMERA_ACTIONS.SET_CONTROLTYPE:
+            console.log("dipatch");
             return { ...state, controlType: action.payload };
         case CAMERA_ACTIONS.SET_FOV:
             return { ...state, fov: action.payload };

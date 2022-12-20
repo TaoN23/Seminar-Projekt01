@@ -22,6 +22,8 @@ function PlaygroundUI({
     fov: number;
     dispatchCameraSettings: Function;
 }): JSX.Element {
+
+    
     const [isVisible, setIsVisible] = useState(false);
 
     const handleControlChange = (
