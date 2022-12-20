@@ -1,34 +1,36 @@
 import { Html } from '@react-three/drei';
 import React, { useState } from 'react';
+import { CAMERA_ACTIONS } from '../../Controls/Controls';
 import './style/PlaygroundUI.css';
 
 /* eslint-disable @typescript-eslint/ban-types */
 
 function PlaygroundUI({
     controlType,
-    setControlType,
     shadowsActive,
     setShadowsActive,
     helperActive,
     setHelperActive,
     fov,
-    setFov,
+    dispatchCameraSettings,
 }: {
     controlType: string;
-    setControlType: Function;
     shadowsActive: boolean;
     setShadowsActive: Function;
     helperActive: { grid: boolean; axis: boolean };
     setHelperActive: Function;
     fov: number;
-    setFov: Function;
+    dispatchCameraSettings: Function;
 }): JSX.Element {
     const [isVisible, setIsVisible] = useState(false);
 
     const handleControlChange = (
         event: React.ChangeEvent<HTMLSelectElement>
     ): void => {
-        setControlType(event.target.value);
+        dispatchCameraSettings({
+            type: CAMERA_ACTIONS.SET_FOV,
+            payload: event.target.value,
+        });
     };
 
     const handleMenuToogle = (): void => {
@@ -54,7 +56,10 @@ function PlaygroundUI({
     const handleFovSliderChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {
-        setFov(event.target.value);
+        dispatchCameraSettings({
+            type: CAMERA_ACTIONS.SET_FOV,
+            payload: event.target.value,
+        });
     };
 
     return (
