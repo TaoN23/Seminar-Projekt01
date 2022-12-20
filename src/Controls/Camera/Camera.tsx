@@ -3,9 +3,8 @@ import React, { useRef } from "react";
 import { Euler, Vector3 } from "three";
 import { CameraSettings } from '../../config/types/Camera/cameraTypes';
 
-function Camera({
-    settings: CameraSettings
-}
+function Camera(
+    {controlType, fov}: CameraSettings
 ): JSX.Element {
     const camera = useRef();
     const cameraOrientation = useRef({
@@ -20,10 +19,10 @@ function Camera({
                 position={new Vector3(...cameraOrientation.current.position)}
                 rotation={new Euler(...cameraOrientation.current.rotation)}
                 ref={camera}
-                fov={settings.fov}
+                fov={fov}
             />
 
-            {settings.control === "Orbit" && <OrbitControls />}
+            {controlType === "Orbit" && <OrbitControls />}
         </>
     );
 }

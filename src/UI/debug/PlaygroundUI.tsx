@@ -1,6 +1,6 @@
 import { Html } from '@react-three/drei';
 import React, { useState } from 'react';
-import { CAMERA_ACTIONS, CameraSettings } from '../config/types/Camera/cameraTypes'
+import { CAMERA_ACTIONS, CameraSettings } from '../../config/types/Camera/cameraTypes';
 import './style/PlaygroundUI.css';
 
 /* eslint-disable @typescript-eslint/ban-types */
@@ -149,7 +149,7 @@ function PlaygroundUI({
                                     onChange={handleFovSliderChange}
                                     step={1}
                                 />
-                                fov: {fov}
+                                fov: {cameraSettings.fov}
                             </label>
                         </div>
                     </div>

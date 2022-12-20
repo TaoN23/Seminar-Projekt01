@@ -38,7 +38,8 @@ function Controls({
     return (
         <>
             <Camera
-                settings={cameraSettings}
+                   controlType={cameraSettings.controlType}
+                   fov={cameraSettings.fov}
             />
             <PlaygroundUI
                 dispatchCameraSettings={dispatchCameraSettings}

@@ -27,7 +27,7 @@ function Border(): JSX.Element {
                     <Box args={[20, 4, 0.2, 4, 4, 4]} position={[0, 0, 10]}>
                         <meshPhongMaterial color="grey" />
                     </Box>
-                    <Box args={[20, 2, 0.2, 4, 4, 4]} position={[0, 0, -10]}>
+                    <Box args={[20, 4, 0.2, 4, 4, 4]} position={[0, 0, -10]}>
                         <meshPhongMaterial color="grey" />
                     </Box>
                 </group>
