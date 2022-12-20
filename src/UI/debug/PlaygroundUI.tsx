@@ -1,6 +1,6 @@
 import { Html } from '@react-three/drei';
 import React, { useState } from 'react';
-import '../style/PlaygroundUI.css';
+import './style/PlaygroundUI.css';
 
 /* eslint-disable @typescript-eslint/ban-types */
 

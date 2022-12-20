@@ -3,7 +3,7 @@ import Border from './components/Border';
 import Helper from './components/Helper';
 import Lights from './components/Lights';
 import Obstacles from './components/Obstacles';
-import Controls from './Controls/Controls';
+import Controls from '../Controls/Controls';
 
 function Playground(): JSX.Element {
     const [shadowsActive, setShadowsActive] = useState(true);

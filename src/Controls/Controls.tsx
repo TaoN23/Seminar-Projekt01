@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Camera from './Camera/Camera';
-import PlaygroundUI from './components/PlaygroundUI';
+import PlaygroundUI from '../UI/debug/PlaygroundUI';
 /* eslint-disable @typescript-eslint/ban-types */
 
 function Controls({
