@@ -1,6 +1,7 @@
-import { useState } from "react";
-import Camera from "./Camera/Camera";
-import PlaygroundUI from "./components/PlaygroundUI";
+import { useState } from 'react';
+import Camera from './Camera/Camera';
+import PlaygroundUI from './components/PlaygroundUI';
+/* eslint-disable @typescript-eslint/ban-types */
 
 function Controls({
     shadowsActive,
@@ -12,18 +13,17 @@ function Controls({
     setShadowsActive: Function;
     helperActive: { grid: boolean; axis: boolean };
     setHelperActive: Function;
-}) {
-    const [controlType, setControlType] = useState("First Person");
+}): JSX.Element {
+    const [controlType, setControlType] = useState('First Person');
     const [fov, setFov] = useState(80);
 
-
-    const fovChange = (newFov: number) =>{
+    const fovChange = (newFov: number): void => {
         setFov(newFov);
-    }
+    };
 
     return (
         <>
-            <Camera controlType={controlType} fov={fov}/>
+            <Camera controlType={controlType} fov={fov} />
             <PlaygroundUI
                 controlType={controlType}
                 setControlType={setControlType}
