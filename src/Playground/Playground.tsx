@@ -41,9 +41,8 @@ function dispatchPlayground(
                 },
             };
         default:
-            break;
+            return state;
     }
-    return state;
 }
 
 function Playground(): JSX.Element {
