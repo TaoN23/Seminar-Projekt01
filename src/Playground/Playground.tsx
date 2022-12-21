@@ -1,32 +1,45 @@
-import { useState, useReducer } from 'react';
+import { useReducer } from 'react';
 import Border from './components/Border';
 import Helper from './components/Helper';
 import Lights from './components/Lights';
 import Obstacles from './components/Obstacles';
 import Controls from '../Controls/Controls';
 
+import {
+    PlaygroundSettings,
+    Action,
+    PLAYGROUND_SETTINGS_ACTIONS,
+} from '../config/types/Playground/playgroundTypes';
 
-export type PlaygroundSettings = {
-    shadowsActive: boolean,
-    helperActive: {grid: boolean, axis: boolean}
-}
-
-export enum PLAYGROUND_SETTINGS_ACTIONS {
-    TOOGLE_SHADOWS,
-}
-
-type Action = {
-    type: PLAYGROUND_SETTINGS_ACTIONS;
-    payload?: any;
-}
-
-function dispatchPlayground(state: PlaygroundSettings, action: Action){
+function dispatchPlayground(
+    state: PlaygroundSettings,
+    action: Action
+): PlaygroundSettings {
     const { type, payload } = action;
 
     switch (type) {
-        case PLAYGROUND_SETTINGS_ACTIONS.TOOGLE_SHADOWS:
-            return {...state, shadowsActive: ()=>!state.shadowsActive}
-    
+        case PLAYGROUND_SETTINGS_ACTIONS.TOGGLE_SHADOWS:
+            return {
+                ...state,
+                shadowsActive: !state.shadowsActive,
+            };
+        case PLAYGROUND_SETTINGS_ACTIONS.TOGGLE_HELPER:
+            if (payload.grid == null) {
+                return {
+                    ...state,
+                    helperActive: {
+                        grid: state.helperActive.grid,
+                        axis: payload.axis,
+                    },
+                };
+            }
+            return {
+                ...state,
+                helperActive: {
+                    grid: payload.grid,
+                    axis: state.helperActive.axis,
+                },
+            };
         default:
             break;
     }
@@ -34,39 +47,20 @@ function dispatchPlayground(state: PlaygroundSettings, action: Action){
 }
 
 function Playground(): JSX.Element {
-    const [shadowsActive, setShadowsActive] = useState(true);
-    const [helperActive, setHelperActive] = useState({
-        grid: true,
-        axis: true,
-    });
-
-    const [playgroundSettings, dispatchPlaygroundSettings] = useReducer(dispatchPlayground, {shadowsActive: true, helperActive: {grid: true, axis: true}});
-
-    const shadowsToogle = (): void => {
-        setShadowsActive((prev) => !prev);
-    };
-
-    const helperToogle = ({
-        grid,
-        axis,
-    }: {
-        grid: boolean;
-        axis: boolean;
-    }): void => {
-        setHelperActive((prev) => {
-            if (grid === null) {
-                return { grid: prev.grid, axis };
-            }
-            return { grid, axis: prev.axis };
-        });
-    };
+    const [playgroundSettings, dispatchPlaygroundSettings] = useReducer(
+        dispatchPlayground,
+        {
+            shadowsActive: true,
+            helperActive: { grid: true, axis: true },
+        }
+    );
 
     return (
         <>
             <Border />
             <Obstacles />
-            <Helper isActive={helperActive} />
-            <Lights isActive={shadowsActive} />
+            <Helper isActive={playgroundSettings.helperActive} />
+            <Lights isActive={playgroundSettings.shadowsActive} />
             <Controls
                 playgroundSettings={playgroundSettings}
                 dispatchPlaygroundSettings={dispatchPlaygroundSettings}

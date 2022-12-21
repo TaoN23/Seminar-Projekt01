@@ -1,7 +1,13 @@
 import { Html } from '@react-three/drei';
 import React, { useState } from 'react';
-import { CAMERA_ACTIONS, CameraSettings } from '../../config/types/Camera/cameraTypes';
-import { PlaygroundSettings, PLAYGROUND_SETTINGS_ACTIONS } from '../../Playground/Playground';
+import {
+    CAMERA_ACTIONS,
+    CameraSettings,
+} from '../../config/types/Playground/Camera/cameraTypes';
+import {
+    PlaygroundSettings,
+    PLAYGROUND_SETTINGS_ACTIONS,
+} from '../../config/types/Playground/playgroundTypes';
 import './style/PlaygroundUI.css';
 
 /* eslint-disable @typescript-eslint/ban-types */
@@ -12,13 +18,11 @@ function PlaygroundUI({
     cameraSettings,
     dispatchCameraSettings,
 }: {
-    playgroundSettings: PlaygroundSettings,
-    dispatchPlaygroundSettings: Function,
+    playgroundSettings: PlaygroundSettings;
+    dispatchPlaygroundSettings: Function;
     cameraSettings: CameraSettings;
     dispatchCameraSettings: Function;
 }): JSX.Element {
-
-
     const [isVisible, setIsVisible] = useState(false);
 
     const handleControlChange = (
@@ -35,19 +39,27 @@ function PlaygroundUI({
     };
 
     const handleShadowsCheckboxChange = (): void => {
-        dispatchPlaygroundSettings({type: PLAYGROUND_SETTINGS_ACTIONS.TOOGLE_SHADOWS})
+        dispatchPlaygroundSettings({
+            type: PLAYGROUND_SETTINGS_ACTIONS.TOGGLE_SHADOWS,
+        });
     };
 
     const handleGridHelperCheckboxChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {
-        setHelperActive({ grid: event.target.checked, axis: null });
+        dispatchPlaygroundSettings({
+            type: PLAYGROUND_SETTINGS_ACTIONS.TOGGLE_HELPER,
+            payload: { grid: event.target.checked, axis: null },
+        });
     };
 
     const handleAxisHelperCheckboxChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ): void => {
-        setHelperActive({ grid: null, axis: event.target.checked });
+        dispatchPlaygroundSettings({
+            type: PLAYGROUND_SETTINGS_ACTIONS.TOGGLE_HELPER,
+            payload: { grid: null, axis: event.target.checked },
+        });
     };
 
     const handleFovSliderChange = (
@@ -116,7 +128,9 @@ function PlaygroundUI({
                                 <input
                                     type="checkbox"
                                     id="gridhelper"
-                                    checked={playgroundSettings.helperActive.grid}
+                                    checked={
+                                        playgroundSettings.helperActive.grid
+                                    }
                                     onChange={handleGridHelperCheckboxChange}
                                 />
                                 Grid
@@ -125,7 +139,9 @@ function PlaygroundUI({
                                 <input
                                     type="checkbox"
                                     id="axishelper"
-                                    checked={playgroundSettings.helperActive.axis}
+                                    checked={
+                                        playgroundSettings.helperActive.axis
+                                    }
                                     onChange={handleAxisHelperCheckboxChange}
                                 />
                                 Axis

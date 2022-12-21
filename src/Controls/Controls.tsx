@@ -1,17 +1,21 @@
 import { useReducer } from 'react';
 import Camera from './Camera/Camera';
 import PlaygroundUI from '../UI/debug/PlaygroundUI';
-import { CameraSettings, Action, CAMERA_ACTIONS } from '../config/types/Camera/cameraTypes';
-import { PlaygroundSettings } from '../Playground/Playground';
+import {
+    CameraSettings,
+    Action,
+    CAMERA_ACTIONS,
+} from '../config/types/Playground/Camera/cameraTypes';
+import { PlaygroundSettings } from '../config/types/Playground/playgroundTypes';
+
 /* eslint-disable @typescript-eslint/ban-types */
 
-
-function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {    
+function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {
     const { type, payload } = action;
 
     switch (type) {
         case CAMERA_ACTIONS.SET_CONTROLTYPE:
-            console.log("dipatch");
+            console.log('dipatch');
             return { ...state, controlType: payload };
         case CAMERA_ACTIONS.SET_FOV:
             return { ...state, fov: payload };
@@ -22,9 +26,9 @@ function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {
 
 function Controls({
     playgroundSettings,
-    dispatchPlaygroundSettings
+    dispatchPlaygroundSettings,
 }: {
-    playgroundSettings : PlaygroundSettings;
+    playgroundSettings: PlaygroundSettings;
     dispatchPlaygroundSettings: Function;
 }): JSX.Element {
     const [cameraSettings, dispatchCameraSettings] = useReducer(
@@ -35,8 +39,8 @@ function Controls({
     return (
         <>
             <Camera
-                   controlType={cameraSettings.controlType}
-                   fov={cameraSettings.fov}
+                controlType={cameraSettings.controlType}
+                fov={cameraSettings.fov}
             />
             <PlaygroundUI
                 cameraSettings={cameraSettings}
