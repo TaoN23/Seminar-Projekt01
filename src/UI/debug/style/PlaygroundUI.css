@@ -1,0 +1,68 @@
+#root div {
+    transform: translate3d(0px, 0px, 0px) !important;
+}
+
+.playground-ui__wrapper {
+    position: absolute;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.playground-ui__enabled {
+    position: relative;
+    right: 0px;
+    background-color: rgba(00, 00, 0, 0.8);
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 5px;
+    color: white;
+
+}
+
+.playground-ui__disabled {
+    position: relative;
+    right: 0px;
+    background-color: black;
+    display: none;
+    width: 0%;
+}
+
+.playground-ui__toogleButton {
+    width: 50px;
+    height: 50px;
+}
+
+.playground-ui__enabled select {
+    height: 30%;
+    width: 100%;
+}
+
+.playground-ui__enabled div {
+    width: 100%;
+    height: 10%;
+    text-align: left;
+}
+
+.playground-ui__enabled h3 {
+    height: 20%;
+    margin-bottom: 20px;
+}
+
+
+.playground-ui__shadows input,
+.playground-ui__helper input {
+    width: 10%;
+    height: auto;
+    margin-left: 5px;
+}
+
+.playground-ui__fov input {
+    height: 20%;
+    width: 100%;
+}
