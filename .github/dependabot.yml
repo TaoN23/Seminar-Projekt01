@@ -27,5 +27,6 @@ updates:
       - "reviewing"
       - "DevOps"
       - "npm update"
+      - "dependencies"
       - "dependabot"
     
