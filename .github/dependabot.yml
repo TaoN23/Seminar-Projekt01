@@ -21,7 +21,7 @@ updates:
       - "TaoN23"
       - "13Anonym"
 
-    milestone: "DevOps"
+    milestone: 8
 
     labels:
       - "reviewing"
