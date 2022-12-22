@@ -8,5 +8,24 @@ version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
+
     schedule:
       interval: "weekly"
+
+    target-branch: "development"
+
+    assignees:
+      - "wsEM2022-24"
+
+    reviewers:
+      - "TaoN23"
+      - "13Anonym"
+
+    milestone: "DevOps"
+
+    labels:
+      - "reviewing"
+      - "DevOps"
+      - "npm update"
+      - "dependabot"
+    
