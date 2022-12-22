@@ -15,5 +15,5 @@
 	"insertPragma": false,
 	"proseWrap": "never",
 	"htmlWhitespaceSensitivity": "ignore",
-	"endOfLine": "lf"
+	"endOfLine": "auto"
 }

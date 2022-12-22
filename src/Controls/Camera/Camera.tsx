@@ -1,14 +1,11 @@
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
-import React, { useRef } from 'react';
-import { Euler, Vector3 } from 'three';
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import React, { useRef } from "react";
+import { Euler, Vector3 } from "three";
+import { CameraSettings } from '../../config/types/Playground/Camera/cameraTypes';
 
-function Camera({
-    controlType,
-    fov,
-}: {
-    controlType: string;
-    fov: number;
-}): JSX.Element {
+function Camera(
+    {controlType, fov}: CameraSettings
+): JSX.Element {
     const camera = useRef();
     const cameraOrientation = useRef({
         position: [0, 1, 5],
@@ -25,7 +22,7 @@ function Camera({
                 fov={fov}
             />
 
-            {controlType === 'Orbit' && <OrbitControls />}
+            {controlType === "Orbit" && <OrbitControls />}
         </>
     );
 }
