@@ -67,7 +67,7 @@ function PlaygroundUI({
     ): void => {
         dispatchCameraSettings({
             type: CAMERA_ACTIONS.SET_FOV,
-            payload: event.target.value,
+            payload: Number(event.target.value),
         });
     };
 

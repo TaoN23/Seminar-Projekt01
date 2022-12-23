@@ -1,6 +1,11 @@
 export type PlaygroundSettings = {
     shadowsActive: boolean;
-    helperActive: { grid: boolean; axis: boolean };
+    helperActive: helperActive;
+};
+
+export type helperActive = {
+    grid: boolean;
+    axis: boolean;
 };
 
 export enum PLAYGROUND_SETTINGS_ACTIONS {
@@ -10,5 +15,5 @@ export enum PLAYGROUND_SETTINGS_ACTIONS {
 
 export type Action = {
     type: PLAYGROUND_SETTINGS_ACTIONS;
-    payload?: any;
+    payload?: helperActive | boolean | undefined;
 };

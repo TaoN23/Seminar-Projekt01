@@ -15,10 +15,15 @@ function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {
 
     switch (type) {
         case CAMERA_ACTIONS.SET_CONTROLTYPE:
-            console.log('dipatch');
-            return { ...state, controlType: payload };
+            if (typeof payload === 'string') {
+                return { ...state, controlType: payload };
+            }
+            return state;
         case CAMERA_ACTIONS.SET_FOV:
-            return { ...state, fov: payload };
+            if (typeof payload === 'number') {
+                return { ...state, fov: payload };
+            }
+            return state;
         default:
             return state;
     }

@@ -24,6 +24,12 @@ function dispatchPlayground(
                 shadowsActive: !state.shadowsActive,
             };
         case PLAYGROUND_SETTINGS_ACTIONS.TOGGLE_HELPER:
+            if (
+                typeof payload === 'undefined' ||
+                typeof payload === 'boolean'
+            ) {
+                return state;
+            }
             if (payload.grid == null) {
                 return {
                     ...state,
