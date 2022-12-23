@@ -30,6 +30,7 @@ function dispatchPlayground(
             ) {
                 return state;
             }
+
             if (payload.grid == null) {
                 return {
                     ...state,

@@ -3,7 +3,7 @@ export type PlaygroundSettings = {
     helperActive: helperActive;
 };
 
-export type helperActive = {
+type helperActive = {
     grid: boolean;
     axis: boolean;
 };
