@@ -29,13 +29,7 @@ function dispatchCamera(state: CameraSettings, action: Action): CameraSettings {
     }
 }
 
-function Controls({
-    playgroundSettings,
-    dispatchPlaygroundSettings,
-}: {
-    playgroundSettings: PlaygroundSettings;
-    dispatchPlaygroundSettings: Function;
-}): JSX.Element {
+function Controls(): JSX.Element {
     const [cameraSettings, dispatchCameraSettings] = useReducer(
         dispatchCamera,
         { controlType: '', fov: 80 }
@@ -50,8 +44,6 @@ function Controls({
             <PlaygroundUI
                 cameraSettings={cameraSettings}
                 dispatchCameraSettings={dispatchCameraSettings}
-                playgroundSettings={playgroundSettings}
-                dispatchPlaygroundSettings={dispatchPlaygroundSettings}
             />
         </>
     );

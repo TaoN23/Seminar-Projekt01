@@ -1,5 +1,6 @@
 import { Html } from '@react-three/drei';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import PlaygroundSettingsContext from '../../config/store/playground-settings-context';
 import {
     CAMERA_ACTIONS,
     CameraSettings,
@@ -13,17 +14,17 @@ import './style/PlaygroundUI.css';
 /* eslint-disable @typescript-eslint/ban-types */
 
 function PlaygroundUI({
-    playgroundSettings,
-    dispatchPlaygroundSettings,
     cameraSettings,
     dispatchCameraSettings,
 }: {
-    playgroundSettings: PlaygroundSettings;
-    dispatchPlaygroundSettings: Function;
     cameraSettings: CameraSettings;
     dispatchCameraSettings: Function;
 }): JSX.Element {
     const [isVisible, setIsVisible] = useState(false);
+
+    const { playgroundSettings, dispatchPlaygroundSettings } = useContext(
+        PlaygroundSettingsContext
+    );
 
     const handleControlChange = (
         event: React.ChangeEvent<HTMLSelectElement>

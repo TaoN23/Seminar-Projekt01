@@ -4,8 +4,8 @@ export type PlaygroundSettings = {
 };
 
 type helperActive = {
-    grid: boolean;
-    axis: boolean;
+    grid: boolean | null;
+    axis: boolean | null;
 };
 
 export enum PLAYGROUND_SETTINGS_ACTIONS {
@@ -16,4 +16,9 @@ export enum PLAYGROUND_SETTINGS_ACTIONS {
 export type Action = {
     type: PLAYGROUND_SETTINGS_ACTIONS;
     payload?: helperActive | boolean | undefined;
+};
+
+export type PlaygroundSettingsContextType = {
+    playgroundSettings: PlaygroundSettings;
+    dispatchPlaygroundSettings: ({ type, payload }: Action) => void;
 };

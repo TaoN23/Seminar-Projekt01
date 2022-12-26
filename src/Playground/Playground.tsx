@@ -9,7 +9,9 @@ import {
     PlaygroundSettings,
     Action,
     PLAYGROUND_SETTINGS_ACTIONS,
+    PlaygroundSettingsContextType,
 } from '../config/types/Playground/playgroundTypes';
+import PlaygroundSettingsContext from '../config/store/playground-settings-context';
 
 function dispatchPlayground(
     state: PlaygroundSettings,
@@ -67,10 +69,14 @@ function Playground(): JSX.Element {
             <Obstacles />
             <Helper isActive={playgroundSettings.helperActive} />
             <Lights isActive={playgroundSettings.shadowsActive} />
-            <Controls
-                playgroundSettings={playgroundSettings}
-                dispatchPlaygroundSettings={dispatchPlaygroundSettings}
-            />
+            <PlaygroundSettingsContext.Provider
+                value={{
+                    playgroundSettings,
+                    dispatchPlaygroundSettings,
+                }}
+            >
+                <Controls />
+            </PlaygroundSettingsContext.Provider>
         </>
     );
 }
