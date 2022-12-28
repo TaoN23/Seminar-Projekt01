@@ -27,29 +27,27 @@ const boxes = [
 
 function Obstacles(): JSX.Element {
     return (
-        <>
+        <group>
+            <Box
+                castShadow
+                receiveShadow
+                args={[2, 2, 2, 4, 4, 4]}
+                position={[0, 1, 0]}
+            >
+                <meshPhongMaterial color="royalblue" />
+            </Box>
             <group>
-                <Box
-                    castShadow
-                    receiveShadow
-                    args={[2, 2, 2, 4, 4, 4]}
-                    position={[0, 1, 0]}
-                >
-                    <meshPhongMaterial color="royalblue" />
-                </Box>
-                <group>
-                    {boxes.map((box: JSX.IntrinsicElements['mesh'], index) => {
-                        return (
-                            <mesh castShadow receiveShadow key={index} {...box}>
-                                <boxGeometry />
-                                <meshPhongMaterial color="blue" />
-                            </mesh>
-                        );
-                    })}
-                </group>
-                <Shelter />
+                {boxes.map((box: JSX.IntrinsicElements['mesh'], index) => {
+                    return (
+                        <mesh castShadow receiveShadow key={index} {...box}>
+                            <boxGeometry />
+                            <meshPhongMaterial color="blue" />
+                        </mesh>
+                    );
+                })}
             </group>
-        </>
+            <Shelter />
+        </group>
     );
 }
 
