@@ -1,3 +1,6 @@
+import { Suspense } from 'react';
+import { BakeShadows } from '@react-three/drei';
+
 import Border from './components/Border';
 import Helper from './components/Helper';
 import Lights from './components/Lights';
@@ -9,8 +12,11 @@ import PlaygroundProvider from '../config/provider/PlaygroundProvider';
 function Playground(): JSX.Element {
     return (
         <>
-            <Border />
-            <Obstacles />
+            <Suspense fallback={null}>
+                <Border />
+                <Obstacles />
+                <BakeShadows />
+            </Suspense>
             <PlaygroundProvider>
                 <Helper />
                 <Lights />
