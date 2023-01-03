@@ -8,7 +8,6 @@ function Border(): JSX.Element {
                 <boxGeometry args={[20, 0.2, 20, 4, 4, 4]} />
                 <meshPhongMaterial color="green" />
             </mesh>
-
             <group>
                 <Box
                     args={[20, 4, 0.2, 4, 4, 4]}
