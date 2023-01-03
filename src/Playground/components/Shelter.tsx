@@ -1,4 +1,5 @@
 import { Box } from '@react-three/drei';
+import React from 'react';
 
 function Shelter(): JSX.Element {
     return (
@@ -23,4 +24,4 @@ function Shelter(): JSX.Element {
     );
 }
 
-export default Shelter;
+export default React.memo(Shelter);

@@ -1,4 +1,5 @@
 import { Box } from '@react-three/drei';
+import React from 'react';
 
 function Border(): JSX.Element {
     return (
@@ -33,4 +34,4 @@ function Border(): JSX.Element {
     );
 }
 
-export default Border;
+export default React.memo(Border);
