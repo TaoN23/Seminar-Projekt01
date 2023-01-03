@@ -5,7 +5,6 @@ import {
 } from '../types/Playground/playgroundTypes';
 
 /* eslint-disable @typescript-eslint/no-empty-function */
-// eslint-disable-next-line prettier/prettier
 const PlaygroundSettingsContext = React.createContext<PlaygroundSettingsContextType>(
     {
         playgroundSettings: {
