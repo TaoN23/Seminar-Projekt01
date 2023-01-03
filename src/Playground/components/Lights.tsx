@@ -1,9 +1,13 @@
-function Lights({ isActive }: { isActive: boolean }): JSX.Element {
+import React, { useContext } from 'react';
+import PlaygroundSettingsContext from '../../config/store/playground-settings-context';
+
+function Lights(): JSX.Element {
+    const isActive = useContext(PlaygroundSettingsContext);
     return (
         <>
             <ambientLight />
             <pointLight
-                castShadow={isActive}
+                castShadow={isActive.playgroundSettings.shadowsActive}
                 position={[5, 5, 5]}
                 intensity={10}
             />
@@ -11,4 +15,4 @@ function Lights({ isActive }: { isActive: boolean }): JSX.Element {
     );
 }
 
-export default Lights;
+export default React.memo(Lights);
