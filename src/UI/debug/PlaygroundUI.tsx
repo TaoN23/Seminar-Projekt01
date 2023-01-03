@@ -50,7 +50,7 @@ function PlaygroundUI({
     ): void => {
         dispatchPlaygroundSettings({
             type: PLAYGROUND_SETTINGS_ACTIONS.TOGGLE_HELPER,
-            payload: { grid: event.target.checked, axis: null },
+            payload: { grid: event.target.checked, axis: undefined },
         });
     };
 
@@ -59,7 +59,7 @@ function PlaygroundUI({
     ): void => {
         dispatchPlaygroundSettings({
             type: PLAYGROUND_SETTINGS_ACTIONS.TOGGLE_HELPER,
-            payload: { grid: null, axis: event.target.checked },
+            payload: { grid: undefined, axis: event.target.checked },
         });
     };
 

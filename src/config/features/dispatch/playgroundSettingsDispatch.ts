@@ -24,7 +24,7 @@ export function dispatchPlayground(
                 return state;
             }
 
-            if (payload.grid == null) {
+            if (payload.grid === undefined) {
                 return {
                     ...state,
                     helperActive: {

@@ -4,8 +4,8 @@ export type PlaygroundSettings = {
 };
 
 type helperActive = {
-    grid: boolean | null;
-    axis: boolean | null;
+    grid: boolean | undefined;
+    axis: boolean | undefined;
 };
 
 export enum PLAYGROUND_SETTINGS_ACTIONS {
