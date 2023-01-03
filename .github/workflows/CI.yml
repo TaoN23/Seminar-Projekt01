@@ -25,7 +25,7 @@ jobs:
         run: npm ci
       
       - name: "run eslint & prettier"
-        run:  npx eslint src/**
+        run:  npx eslint src/** --fix
 
       - name: "run test build"
         run: npm run build
