@@ -1,12 +1,12 @@
 import { Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import Playground from './Playground/Playground';
+import Game from './Game/Game';
 
 function App(): JSX.Element {
     return (
         <Canvas shadows>
-            <Playground />
             <Sky />
+            <Game />
         </Canvas>
     );
 }
