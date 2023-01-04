@@ -2,6 +2,7 @@ import { useSphere } from '@react-three/cannon';
 import { SphereGeometryProps, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { Mesh, Object3D, Sphere, SphereGeometry, Vector3 } from 'three';
+import { useKeyboard } from '../../../config/features/hooks/useKeyboard';
 
 function PlayerControls(): JSX.Element {
     const { camera } = useThree();
@@ -13,7 +14,7 @@ function PlayerControls(): JSX.Element {
             position: [-2, 1, 0],
         })
     );
-
+    const foo = useKeyboard();
     const playerPosition = useRef<number[]>([0, 0, 0]);
     const playerVelocity = useRef<number[]>([0, 0, 0]);
 
@@ -39,12 +40,7 @@ function PlayerControls(): JSX.Element {
         );
     });
 
-    return (
-        <mesh ref={playerBoundingboxRef} castShadow>
-            <sphereGeometry args={[0.5]} attach="geometry" />
-            <meshBasicMaterial attach="material" />
-        </mesh>
-    );
+    return <mesh ref={playerBoundingboxRef} />;
 }
 
 export default PlayerControls;
