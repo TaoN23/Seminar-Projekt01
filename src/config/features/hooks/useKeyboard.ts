@@ -18,6 +18,10 @@ const keys = [
         key: 'KeyD',
         returnType: 'right',
     },
+    {
+        key: 'Space',
+        returnType: 'jump',
+    },
 ];
 
 function keyIslisted(keymap: any, key: string): string | undefined {

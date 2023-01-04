@@ -66,6 +66,18 @@ function PlayerControls(): JSX.Element {
             playerVelocity.current[1],
             direction.z
         );
+
+        if (
+            directions?.jump &&
+            Math.abs(playerVelocity.current[1]) < 0.05 &&
+            playerPosition.current[1] < 0.5
+        ) {
+            playerBoundingboxAPI.velocity.set(
+                playerVelocity.current[0],
+                2,
+                playerVelocity.current[2]
+            );
+        }
     });
 
     return <mesh ref={playerBoundingboxRef} />;
