@@ -6,6 +6,7 @@ import { Mesh } from 'three';
 function Border(): JSX.Element {
     const [groundRef] = usePlane<Mesh>(() => ({
         rotation: [-Math.PI / 2, 0, 0],
+        type: 'Static',
     }));
     return (
         <group>

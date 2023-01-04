@@ -1,15 +1,46 @@
 import { useSphere } from '@react-three/cannon';
-import { SphereGeometryProps } from '@react-three/fiber';
-import { Mesh, Object3D, Sphere, SphereGeometry } from 'three';
+import { SphereGeometryProps, useFrame, useThree } from '@react-three/fiber';
+import { useEffect, useRef } from 'react';
+import { Mesh, Object3D, Sphere, SphereGeometry, Vector3 } from 'three';
 
 function PlayerControls(): JSX.Element {
-    const [playerBoundingboxRef] = useSphere<Mesh>(() => ({
-        mass: 1,
-        args: [0.5],
-        position: [-2, 1, 0],
-    }));
+    const { camera } = useThree();
+    const [playerBoundingboxRef, playerBoundingboxAPI] = useSphere<Mesh>(
+        () => ({
+            mass: 1,
+            type: 'Dynamic',
+            args: [0.5],
+            position: [-2, 1, 0],
+        })
+    );
+
+    const playerPosition = useRef<number[]>([0, 0, 0]);
+    const playerVelocity = useRef<number[]>([0, 0, 0]);
+
+    useEffect(() => {
+        playerBoundingboxAPI.position.subscribe((newPosition) => {
+            playerPosition.current = newPosition;
+        });
+    }, [playerBoundingboxAPI.position]);
+
+    useEffect(() => {
+        playerBoundingboxAPI.velocity.subscribe((newVelocity) => {
+            playerVelocity.current = newVelocity;
+        });
+    }, [playerBoundingboxAPI.velocity]);
+
+    useFrame(() => {
+        camera.position.copy(
+            new Vector3(
+                playerPosition.current[0],
+                playerPosition.current[1],
+                playerPosition.current[2]
+            )
+        );
+    });
+
     return (
-        <mesh ref={playerBoundingboxRef}>
+        <mesh ref={playerBoundingboxRef} castShadow>
             <sphereGeometry args={[0.5]} attach="geometry" />
             <meshBasicMaterial attach="material" />
         </mesh>

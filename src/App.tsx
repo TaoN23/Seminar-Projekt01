@@ -1,4 +1,4 @@
-import { Sky } from '@react-three/drei';
+import { PointerLockControls, Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import Game from './Game/Game';
 
