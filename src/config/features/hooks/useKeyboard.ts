@@ -10,14 +10,47 @@ const keys = [
         key: 'KeyS',
         returnType: 'backwards',
     },
+    {
+        key: 'KeyA',
+        returnType: 'left',
+    },
+    {
+        key: 'KeyD',
+        returnType: 'right',
+    },
 ];
-export function useKeyboard(): void {
+
+function keyIslisted(keymap: any, key: string): string | undefined {
+    return keymap[key];
+}
+
+export function useKeyboard(): any {
     const keymap = useRef();
     const returnKeys = useRef();
+    const [activeKeys, setActiveKeys] = useState(returnKeys.current);
 
     const handlekeydown = useCallback((event: any) => {
-        console.log(event);
+        const action = keyIslisted(keymap.current, event.code);
+        if (action) {
+            setActiveKeys((prev) => {
+                /**
+                 * @ts-ignore */
+                return { ...prev, [action]: true };
+            });
+        }
     }, []);
+
+    const handlekeyup = useCallback((event: any) => {
+        const action = keyIslisted(keymap.current, event.code);
+        if (action) {
+            setActiveKeys((prev) => {
+                /**
+                 * @ts-ignore */
+                return { ...prev, [action]: false };
+            });
+        }
+    }, []);
+
     useEffect(() => {
         keymap.current = Object.assign(
             {},
@@ -28,13 +61,17 @@ export function useKeyboard(): void {
             {},
             ...keys.map((s) => ({ [s.returnType]: 'false' }))
         );
-        const keydownlistener = window.addEventListener(
-            'keydown',
-            handlekeydown
-        );
     }, []);
 
-    const [activeKeys, setActiveKeys] = useState(returnKeys.current);
+    useEffect(() => {
+        window.addEventListener('keydown', handlekeydown);
+        window.addEventListener('keyup', handlekeyup);
+
+        return () => {
+            window.removeEventListener('keydown', handlekeydown);
+            window.removeEventListener('keyup', handlekeyup);
+        };
+    }, [handlekeydown, handlekeyup]);
 
     return activeKeys;
 }

@@ -15,6 +15,8 @@ function PlayerControls(): JSX.Element {
         })
     );
     const foo = useKeyboard();
+    console.log(foo);
+    
     const playerPosition = useRef<number[]>([0, 0, 0]);
     const playerVelocity = useRef<number[]>([0, 0, 0]);
 
