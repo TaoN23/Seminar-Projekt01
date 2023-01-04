@@ -3,6 +3,30 @@ import { SphereGeometryProps, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import { Mesh, Object3D, Sphere, SphereGeometry, Vector3 } from 'three';
 import { useKeyboard } from '../../../config/features/hooks/useKeyboard';
+import { Keys } from '../../../config/types/hookTypes';
+
+const KEYS: Keys[] = [
+    {
+        key: 'KeyW',
+        returnType: 'forward',
+    },
+    {
+        key: 'KeyS',
+        returnType: 'backward',
+    },
+    {
+        key: 'KeyA',
+        returnType: 'left',
+    },
+    {
+        key: 'KeyD',
+        returnType: 'right',
+    },
+    {
+        key: 'Space',
+        returnType: 'jump',
+    },
+];
 
 function PlayerControls(): JSX.Element {
     const { camera } = useThree();
@@ -15,7 +39,7 @@ function PlayerControls(): JSX.Element {
         })
     );
 
-    const directions = useKeyboard();
+    const directions = useKeyboard(KEYS);
 
     const playerPosition = useRef<number[]>([0, 0, 0]);
     const playerVelocity = useRef<number[]>([0, 0, 0]);
