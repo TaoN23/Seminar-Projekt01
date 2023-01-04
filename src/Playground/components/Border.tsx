@@ -1,7 +1,6 @@
-import { Box } from '@react-three/drei';
 import { useBox, usePlane } from '@react-three/cannon';
 import React from 'react';
-import { BoxGeometry, BufferGeometry, Mesh } from 'three';
+import { BufferGeometry, Mesh } from 'three';
 
 function Border(): JSX.Element {
     const [groundRef] = usePlane<Mesh<BufferGeometry>>(() => ({

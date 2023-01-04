@@ -1,30 +1,7 @@
-import { Box } from '@react-three/drei';
 import { useBox } from '@react-three/cannon';
-import { BufferGeometry, Mesh, Vector3 } from 'three';
+import { BufferGeometry, Mesh } from 'three';
 import React from 'react';
 import Shelter from './Shelter';
-
-const boxes = [
-    {
-        position: new Vector3(3, 0, 5),
-        scale: new Vector3(4, 1, 2),
-    },
-    {
-        position: new Vector3(-3, 0, -5),
-        scale: new Vector3(4, 1, 2),
-    },
-    {
-        position: new Vector3(5, 0, -5),
-        scale: new Vector3(2, 0.5, 1),
-    },
-    {
-        position: new Vector3(-5, 0, 5),
-        scale: new Vector3(2, 0.5, 1),
-    },
-];
-
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/no-array-index-key */
 
 function Obstacles(): JSX.Element {
     const [bigBoxRef] = useBox<Mesh<BufferGeometry>>(() => ({

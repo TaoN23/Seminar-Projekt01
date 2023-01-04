@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Keys } from '../../types/hookTypes';
 
 function keyIslisted(keymap: any, key: string): string | undefined {
@@ -6,8 +6,6 @@ function keyIslisted(keymap: any, key: string): string | undefined {
 }
 
 export function useKeyboard(keys: Keys[]): any {
-    console.log(keys);
-
     const keymap = useRef();
     const returnKeys = useRef();
     const [activeKeys, setActiveKeys] = useState(returnKeys.current);
@@ -44,7 +42,7 @@ export function useKeyboard(keys: Keys[]): any {
             {},
             ...keys.map((s) => ({ [s.returnType]: 'false' }))
         );
-    }, []);
+    }, [keys]);
 
     useEffect(() => {
         window.addEventListener('keydown', handlekeydown);

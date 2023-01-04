@@ -1,7 +1,7 @@
 import { useSphere } from '@react-three/cannon';
-import { SphereGeometryProps, useFrame, useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
-import { Mesh, Object3D, Sphere, SphereGeometry, Vector3 } from 'three';
+import { Mesh, Vector3 } from 'three';
 import { useKeyboard } from '../../../config/features/hooks/useKeyboard';
 import { Keys } from '../../../config/types/hookTypes';
 

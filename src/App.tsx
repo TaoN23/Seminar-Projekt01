@@ -1,6 +1,6 @@
-import { PointerLockControls, Sky } from '@react-three/drei';
-import { Canvas, useThree } from '@react-three/fiber';
-import { PCFSoftShadowMap, ShadowMapType } from 'three';
+import { Sky } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { PCFSoftShadowMap } from 'three';
 import Game from './Game/Game';
 
 function App(): JSX.Element {

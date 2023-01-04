@@ -1,5 +1,5 @@
 import { Physics } from '@react-three/cannon';
-import { CameraShake, PointerLockControls } from '@react-three/drei';
+import { PointerLockControls } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
 import Playground from '../Playground/Playground';
 import Player from './Player/Player';
