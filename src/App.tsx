@@ -5,7 +5,7 @@ import Game from './Game/Game';
 
 function App(): JSX.Element {
     return (
-        <Canvas shadows={{ type: PCFSoftShadowMap }}>
+        <Canvas gl={{ antialias: true }} shadows={{ type: PCFSoftShadowMap }}>
             <Sky />
             <Game />
         </Canvas>

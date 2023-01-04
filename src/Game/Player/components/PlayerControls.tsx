@@ -60,7 +60,8 @@ function PlayerControls(): JSX.Element {
         camera.position.copy(
             new Vector3(
                 playerPosition.current[0],
-                playerPosition.current[1],
+                playerPosition.current[1] +
+                    0.01 * Math.sin(10 * playerPosition.current[0]),
                 playerPosition.current[2]
             )
         );
@@ -94,11 +95,11 @@ function PlayerControls(): JSX.Element {
         if (
             directions?.jump &&
             Math.abs(playerVelocity.current[1]) < 0.05 &&
-            playerPosition.current[1] < 0.5
+            playerPosition.current[1] < 0.8
         ) {
             playerBoundingboxAPI.velocity.set(
                 playerVelocity.current[0],
-                2.5,
+                3,
                 playerVelocity.current[2]
             );
         }
