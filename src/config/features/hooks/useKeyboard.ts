@@ -8,7 +8,7 @@ const keys = [
     },
     {
         key: 'KeyS',
-        returnType: 'backwards',
+        returnType: 'backward',
     },
     {
         key: 'KeyA',
