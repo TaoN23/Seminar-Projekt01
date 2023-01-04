@@ -82,7 +82,7 @@ function PlayerControls(): JSX.Element {
         direction
             .subVectors(frontVector, sideVector)
             .normalize()
-            .multiplyScalar(4)
+            .multiplyScalar(2)
             .applyEuler(camera.rotation);
 
         playerBoundingboxAPI.velocity.set(
@@ -98,7 +98,7 @@ function PlayerControls(): JSX.Element {
         ) {
             playerBoundingboxAPI.velocity.set(
                 playerVelocity.current[0],
-                2,
+                2.5,
                 playerVelocity.current[2]
             );
         }

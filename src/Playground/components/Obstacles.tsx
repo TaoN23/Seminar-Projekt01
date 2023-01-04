@@ -1,5 +1,6 @@
 import { Box } from '@react-three/drei';
-import { Vector3 } from 'three';
+import { useBox } from '@react-three/cannon';
+import { BufferGeometry, Mesh, Vector3 } from 'three';
 import React from 'react';
 import Shelter from './Shelter';
 
@@ -26,25 +27,59 @@ const boxes = [
 /* eslint-disable react/no-array-index-key */
 
 function Obstacles(): JSX.Element {
+    const [bigBoxRef] = useBox<Mesh<BufferGeometry>>(() => ({
+        type: 'Static',
+        args: [2, 2, 2],
+        position: [0, 1, 0],
+    }));
+
+    const [cube1Ref] = useBox<Mesh<BufferGeometry>>(() => ({
+        type: 'Static',
+        args: [4, 1, 2],
+        position: [3, 0, 5],
+    }));
+
+    const [cube2Ref] = useBox<Mesh<BufferGeometry>>(() => ({
+        type: 'Static',
+        args: [4, 1, 2],
+        position: [-3, 0, -5],
+    }));
+
+    const [cube3Ref] = useBox<Mesh<BufferGeometry>>(() => ({
+        type: 'Static',
+        args: [2, 0.5, 1],
+        position: [5, 0, -5],
+    }));
+
+    const [cube4Ref] = useBox<Mesh<BufferGeometry>>(() => ({
+        type: 'Static',
+        args: [2, 0.5, 1],
+        position: [-5, 0, 5],
+    }));
+
     return (
         <group>
-            <Box
-                castShadow
-                receiveShadow
-                args={[2, 2, 2, 4, 4, 4]}
-                position={[0, 1, 0]}
-            >
-                <meshPhongMaterial color="royalblue" />
-            </Box>
+            <mesh ref={bigBoxRef} castShadow receiveShadow>
+                <boxGeometry args={[2, 2, 2, 4, 4, 4]} attach="geometry" />
+                <meshPhongMaterial color="royalblue" attach="material" />
+            </mesh>
             <group>
-                {boxes.map((box: JSX.IntrinsicElements['mesh'], index) => {
-                    return (
-                        <mesh castShadow receiveShadow key={index} {...box}>
-                            <boxGeometry />
-                            <meshPhongMaterial color="blue" />
-                        </mesh>
-                    );
-                })}
+                <mesh ref={cube1Ref} castShadow receiveShadow>
+                    <boxGeometry args={[4, 1, 2]} attach="geometry" />
+                    <meshPhongMaterial color="blue" attach="material" />
+                </mesh>
+                <mesh ref={cube2Ref} castShadow receiveShadow>
+                    <boxGeometry args={[4, 1, 2]} attach="geometry" />
+                    <meshPhongMaterial color="blue" attach="material" />
+                </mesh>
+                <mesh ref={cube3Ref} castShadow receiveShadow>
+                    <boxGeometry args={[2, 0.5, 1]} attach="geometry" />
+                    <meshPhongMaterial color="blue" attach="material" />
+                </mesh>
+                <mesh ref={cube4Ref} castShadow receiveShadow>
+                    <boxGeometry args={[2, 0.5, 1]} attach="geometry" />
+                    <meshPhongMaterial color="blue" attach="material" />
+                </mesh>
             </group>
             <Shelter />
         </group>

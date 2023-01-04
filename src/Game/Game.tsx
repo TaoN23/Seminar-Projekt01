@@ -8,7 +8,7 @@ function Game(): JSX.Element {
     const { camera } = useThree();
     return (
         <>
-            <Physics>
+            <Physics gravity={[0, -10, 0]}>
                 <Playground />
                 <Player />
             </Physics>
