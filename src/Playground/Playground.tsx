@@ -18,7 +18,6 @@ function Playground(): JSX.Element {
                 <BakeShadows />
             </Suspense>
             <PlaygroundProvider>
-                <Helper />
                 <Lights />
                 <Controls />
             </PlaygroundProvider>
