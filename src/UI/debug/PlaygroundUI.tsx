@@ -5,10 +5,7 @@ import {
     CAMERA_ACTIONS,
     CameraSettings,
 } from '../../config/types/Playground/Camera/cameraTypes';
-import {
-    PlaygroundSettings,
-    PLAYGROUND_SETTINGS_ACTIONS,
-} from '../../config/types/Playground/playgroundTypes';
+import { PLAYGROUND_SETTINGS_ACTIONS } from '../../config/types/Playground/playgroundTypes';
 import './style/PlaygroundUI.css';
 
 /* eslint-disable @typescript-eslint/ban-types */

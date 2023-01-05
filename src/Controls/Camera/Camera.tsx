@@ -11,17 +11,12 @@ function Camera({ controlType, fov }: CameraSettings): JSX.Element {
     });
 
     return (
-        <>
-            <PerspectiveCamera
-                makeDefault
-                position={new Vector3(...cameraOrientation.current.position)}
-                rotation={new Euler(...cameraOrientation.current.rotation)}
-                ref={camera}
-                fov={fov}
-            />
-
-            {controlType === 'Orbit' && <OrbitControls />}
-        </>
+        <PerspectiveCamera
+            position={new Vector3(...cameraOrientation.current.position)}
+            rotation={new Euler(...cameraOrientation.current.rotation)}
+            ref={camera}
+            fov={fov}
+        />
     );
 }
 
