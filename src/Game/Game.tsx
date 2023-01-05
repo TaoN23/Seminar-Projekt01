@@ -2,6 +2,7 @@ import { Physics } from '@react-three/cannon';
 import { PointerLockControls } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
 import Playground from '../Playground/Playground';
+import Crosshair from '../UI/production/Crosshair';
 import Bulletholes from './Bulletholes/Bulletholes';
 import Player from './Player/Player';
 
@@ -15,6 +16,7 @@ function Game(): JSX.Element {
             </Physics>
             <PointerLockControls camera={camera} />
             <Bulletholes />
+            <Crosshair />
         </>
     );
 }
