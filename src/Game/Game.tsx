@@ -1,7 +1,6 @@
 import { Physics } from '@react-three/cannon';
 import { PointerLockControls } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
-import { useEffect, useState } from 'react';
 import Playground from '../Playground/Playground';
 import Bulletholes from './Bulletholes/Bulletholes';
 import Player from './Player/Player';

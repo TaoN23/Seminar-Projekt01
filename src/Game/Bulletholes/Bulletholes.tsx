@@ -3,6 +3,7 @@ import { generateUUID } from 'three/src/math/MathUtils';
 import Bullethole from './components/Bullethole';
 
 function Bulletholes(): JSX.Element {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [holes, setHoles] = useState<Array<any>>([]);
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

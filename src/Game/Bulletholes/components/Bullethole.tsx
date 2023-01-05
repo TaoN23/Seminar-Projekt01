@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import { dispose, useThree } from '@react-three/fiber';
-import { useEffect, useLayoutEffect, useRef } from 'react';
-import { Decal } from '@react-three/drei';
+import { useEffect, useRef } from 'react';
 import { BufferGeometry, Euler, Mesh, Object3D, Vector3 } from 'three';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -27,10 +26,10 @@ function Bullethole(): JSX.Element {
         };
         raycaster.setFromCamera(screenmid, camera);
         const hits = raycaster.intersectObjects(scene.children);
-        console.log(hits);
         if (hits.length > 0) {
             const position = hits[0].point.clone();
             const eye = camera.position.clone();
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             eye.add(hits[0].face!.normal);
             const rotation = new THREE.Matrix4();
             rotation.lookAt(eye, position, THREE.Object3D.DefaultUp);
@@ -56,7 +55,7 @@ function Bullethole(): JSX.Element {
         return () => {
             dispose(decalRef);
         };
-    }, []);
+    }, [camera, scene]);
 
     // eslint-disable-next-line react/jsx-no-useless-fragment
     return <></>;
