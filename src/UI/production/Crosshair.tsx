@@ -1,4 +1,3 @@
-import { Html } from '@react-three/drei';
 import './style/crosshair.css';
 
 function Crosshair(): JSX.Element {

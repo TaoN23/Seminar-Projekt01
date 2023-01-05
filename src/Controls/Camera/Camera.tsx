@@ -1,4 +1,4 @@
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import { PerspectiveCamera } from '@react-three/drei';
 import React, { useRef } from 'react';
 import { Euler, Vector3 } from 'three';
 import { CameraSettings } from '../../config/types/Playground/Camera/cameraTypes';

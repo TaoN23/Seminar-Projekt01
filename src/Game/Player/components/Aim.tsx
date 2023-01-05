@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';

@@ -33,8 +33,12 @@ function Bullethole(): JSX.Element {
             eye.add(hits[0].face!.normal);
             const rotation = new THREE.Matrix4();
             rotation.lookAt(eye, position, THREE.Object3D.DefaultUp);
-            const orientation = new THREE.Euler();
-            orientation.setFromRotationMatrix(rotation);
+            const orientation = new THREE.Euler(
+                Math.random(),
+                Math.random(),
+                Math.random()
+            );
+            // orientation.setFromRotationMatrix(rotation);
             const decalgeometry = newDecalGeometry(
                 hits[0].object,
                 hits[0].point,
