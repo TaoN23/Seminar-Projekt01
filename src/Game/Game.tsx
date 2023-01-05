@@ -16,9 +16,6 @@ function Game(): JSX.Element {
             </Physics>
             <PointerLockControls camera={camera} />
             <Bulletholes />
-            <Hud>
-                <Crosshair />
-            </Hud>
         </>
     );
 }
