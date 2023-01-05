@@ -5,7 +5,7 @@ export enum CAMERA_ACTIONS {
 
 export type Action = {
     type: CAMERA_ACTIONS;
-    payload?: any;
+    payload?: string | number | undefined;
 };
 
 export type CameraSettings = {

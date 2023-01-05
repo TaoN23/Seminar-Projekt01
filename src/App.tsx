@@ -1,12 +1,13 @@
 import { Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import Playground from './Playground/Playground';
+import { PCFSoftShadowMap } from 'three';
+import Game from './Game/Game';
 
 function App(): JSX.Element {
     return (
-        <Canvas shadows>
-            <Playground />
+        <Canvas gl={{ antialias: true }} shadows={{ type: PCFSoftShadowMap }}>
             <Sky />
+            <Game />
         </Canvas>
     );
 }
