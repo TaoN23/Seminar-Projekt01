@@ -26,6 +26,10 @@ const KEYS: Keys[] = [
         key: 'Space',
         returnType: 'jump',
     },
+    {
+        key: 'ShiftLeft',
+        returnType: 'sprint',
+    },
 ];
 
 function PlayerControls(): JSX.Element {
@@ -83,7 +87,7 @@ function PlayerControls(): JSX.Element {
         direction
             .subVectors(frontVector, sideVector)
             .normalize()
-            .multiplyScalar(2)
+            .multiplyScalar(directions?.sprint ? 3.5 : 2)
             .applyEuler(camera.rotation);
 
         playerBoundingboxAPI.velocity.set(
