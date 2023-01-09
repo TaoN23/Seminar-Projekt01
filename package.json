@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@react-three/cannon": "^6.5.0",
-        "@react-three/drei": "^9.50.3",
+        "@react-three/drei": "^9.51.21",
         "@react-three/fiber": "^8.10.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
