@@ -64,8 +64,7 @@ function PlayerControls(): JSX.Element {
         camera.position.copy(
             new Vector3(
                 playerPosition.current[0],
-                playerPosition.current[1] +
-                    0.01 * Math.sin(10 * playerPosition.current[0]),
+                playerPosition.current[1] + 0.5,
                 playerPosition.current[2]
             )
         );
