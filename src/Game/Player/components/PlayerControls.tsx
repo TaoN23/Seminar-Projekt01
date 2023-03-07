@@ -38,7 +38,7 @@ function PlayerControls(): JSX.Element {
         () => ({
             mass: 1,
             type: 'Dynamic',
-            args: [0.8],    //"height"
+            args: [0.8], //  "height"
             position: [-2, 1, 0],
         })
     );
