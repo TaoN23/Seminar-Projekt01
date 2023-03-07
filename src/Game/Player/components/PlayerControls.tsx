@@ -30,6 +30,14 @@ const KEYS: Keys[] = [
         key: 'ShiftLeft',
         returnType: 'sprint',
     },
+    {
+        key: 'KeyC',
+        returnType: 'crouch',
+    },
+    {
+        key: 'AltLeft',
+        returnType: 'lie',
+    }
 ];
 
 function PlayerControls(): JSX.Element {
@@ -106,6 +114,34 @@ function PlayerControls(): JSX.Element {
                 3,
                 playerVelocity.current[2]
             );
+        }
+
+
+
+        if (
+            directions?.crouch &&
+            Math.abs(playerVelocity.current[1]) < 0.05 &&
+            playerPosition.current[1] < 1.3 // 1,4 da größe 0.8 und obstacles maximal 1
+        ) {
+            /*playerBoundingboxAPI.velocity.set(
+                0,//playerVelocity.current[0],
+                -3,//3,
+                0,//playerVelocity.current[2]
+            );*/
+            camera.position.y -= 0.3;
+        }
+
+        if (
+            directions?.lie &&
+            Math.abs(playerVelocity.current[1]) < 0.05 &&
+            playerPosition.current[1] < 1.3 // 1,4 da größe 0.8 und obstacles maximal 1
+        ) {
+            /*playerBoundingboxAPI.velocity.set(
+                0,//playerVelocity.current[0],
+                -3,//3,
+                0,//playerVelocity.current[2]
+            );*/
+            camera.position.y -= 0.6;
         }
     });
 
