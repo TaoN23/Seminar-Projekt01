@@ -4,7 +4,7 @@ import { useKeyboard } from "../../../config/features/hooks/useKeyboard";
 
 function Duck(): JSX.Element {
 
-    const isPressed = useKeyboard([{key: }])
+    //  const isPressed = useKeyboard([{key: }])
     
     return <></>;
 }
