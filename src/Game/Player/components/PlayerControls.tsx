@@ -30,7 +30,19 @@ const KEYS: Keys[] = [
         key: 'ShiftLeft',
         returnType: 'sprint',
     },
+    {
+        key: 'KeyC',
+        returnType: 'crouch',
+    },
+    {
+        key: 'AltLeft',
+        returnType: 'lie',
+    }
 ];
+
+//let crouch = false;
+let lie = false;
+//let jump = false;
 
 function PlayerControls(): JSX.Element {
     const { camera } = useThree();
@@ -38,7 +50,7 @@ function PlayerControls(): JSX.Element {
         () => ({
             mass: 1,
             type: 'Dynamic',
-            args: [0.5],
+            args: [0.8], //  "height"
             position: [-2, 1, 0],
         })
     );
@@ -99,14 +111,67 @@ function PlayerControls(): JSX.Element {
         if (
             directions?.jump &&
             Math.abs(playerVelocity.current[1]) < 0.05 &&
-            playerPosition.current[1] < 0.8
+            //jump == false &&
+            playerPosition.current[1] < 1.3 // 1,4 da größe 0.8 und obstacles maximal 1
         ) {
+            //jump = true;           
+
             playerBoundingboxAPI.velocity.set(
                 playerVelocity.current[0],
                 3,
                 playerVelocity.current[2]
             );
+            
         }
+        //jump = false;
+
+
+
+
+
+
+        
+
+
+        if (
+            directions?.crouch &&
+            Math.abs(playerVelocity.current[1]) < 0.05 //&&
+//            crouch == false //&& 
+            //playerPosition.current[1] < 1.3
+        ) {
+            /*playerBoundingboxAPI.velocity.set(
+                0,//playerVelocity.current[0],
+                -3,//3,
+                0,//playerVelocity.current[2]
+            );*/
+            camera.position.y -= 0.3;
+            console.log("crouch")
+        }
+
+//        if(
+//            directions?.crouch && 
+//            crouch == true
+//        ) {
+//            crouch = false
+//        }
+
+
+
+
+        /*if (
+            directions?.lie &&
+            Math.abs(playerVelocity.current[1]) < 0.05 &&
+            lie == false
+            //playerPosition.current[1] < 1.3
+        ) {
+            /*playerBoundingboxAPI.velocity.set(
+                0,//playerVelocity.current[0],
+                -3,//3,
+                0,//playerVelocity.current[2]
+            );*/
+        /*    camera.position.y -= 0.6;
+            console.log("lie")
+        }*/
     });
 
     return <mesh ref={playerBoundingboxRef} />;
