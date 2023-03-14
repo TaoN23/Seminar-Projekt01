@@ -40,6 +40,10 @@ const KEYS: Keys[] = [
     }
 ];
 
+let crouch = false;
+let lie = false;
+let jump = false;
+
 function PlayerControls(): JSX.Element {
     const { camera } = useThree();
     const [playerBoundingboxRef, playerBoundingboxAPI] = useSphere<Mesh>(
@@ -107,21 +111,30 @@ function PlayerControls(): JSX.Element {
         if (
             directions?.jump &&
             Math.abs(playerVelocity.current[1]) < 0.05 &&
+            jump == false &&
             playerPosition.current[1] < 1.3 // 1,4 da größe 0.8 und obstacles maximal 1
         ) {
+            jump = true;           
+
             playerBoundingboxAPI.velocity.set(
                 playerVelocity.current[0],
                 3,
                 playerVelocity.current[2]
             );
+            
         }
+        jump = false;
 
+
+
+        if()
 
 
         if (
             directions?.crouch &&
             Math.abs(playerVelocity.current[1]) < 0.05 &&
-            playerPosition.current[1] < 1.3 // 1,4 da größe 0.8 und obstacles maximal 1
+            crouch == false //&& 
+            //playerPosition.current[1] < 1.3
         ) {
             /*playerBoundingboxAPI.velocity.set(
                 0,//playerVelocity.current[0],
@@ -129,12 +142,14 @@ function PlayerControls(): JSX.Element {
                 0,//playerVelocity.current[2]
             );*/
             camera.position.y -= 0.3;
+            console.log("crouch")
         }
 
         if (
             directions?.lie &&
             Math.abs(playerVelocity.current[1]) < 0.05 &&
-            playerPosition.current[1] < 1.3 // 1,4 da größe 0.8 und obstacles maximal 1
+            lie == false
+            //playerPosition.current[1] < 1.3
         ) {
             /*playerBoundingboxAPI.velocity.set(
                 0,//playerVelocity.current[0],
@@ -142,6 +157,7 @@ function PlayerControls(): JSX.Element {
                 0,//playerVelocity.current[2]
             );*/
             camera.position.y -= 0.6;
+            console.log("lie")
         }
     });
 
