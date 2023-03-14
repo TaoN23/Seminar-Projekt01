@@ -40,9 +40,9 @@ const KEYS: Keys[] = [
     }
 ];
 
-let crouch = false;
+//let crouch = false;
 let lie = false;
-let jump = false;
+//let jump = false;
 
 function PlayerControls(): JSX.Element {
     const { camera } = useThree();
@@ -111,10 +111,10 @@ function PlayerControls(): JSX.Element {
         if (
             directions?.jump &&
             Math.abs(playerVelocity.current[1]) < 0.05 &&
-            jump == false &&
+            //jump == false &&
             playerPosition.current[1] < 1.3 // 1,4 da größe 0.8 und obstacles maximal 1
         ) {
-            jump = true;           
+            //jump = true;           
 
             playerBoundingboxAPI.velocity.set(
                 playerVelocity.current[0],
@@ -123,17 +123,20 @@ function PlayerControls(): JSX.Element {
             );
             
         }
-        jump = false;
+        //jump = false;
 
 
 
-        if()
+
+
+
+        
 
 
         if (
             directions?.crouch &&
-            Math.abs(playerVelocity.current[1]) < 0.05 &&
-            crouch == false //&& 
+            Math.abs(playerVelocity.current[1]) < 0.05 //&&
+//            crouch == false //&& 
             //playerPosition.current[1] < 1.3
         ) {
             /*playerBoundingboxAPI.velocity.set(
@@ -145,7 +148,17 @@ function PlayerControls(): JSX.Element {
             console.log("crouch")
         }
 
-        if (
+//        if(
+//            directions?.crouch && 
+//            crouch == true
+//        ) {
+//            crouch = false
+//        }
+
+
+
+
+        /*if (
             directions?.lie &&
             Math.abs(playerVelocity.current[1]) < 0.05 &&
             lie == false
@@ -156,9 +169,9 @@ function PlayerControls(): JSX.Element {
                 -3,//3,
                 0,//playerVelocity.current[2]
             );*/
-            camera.position.y -= 0.6;
+        /*    camera.position.y -= 0.6;
             console.log("lie")
-        }
+        }*/
     });
 
     return <mesh ref={playerBoundingboxRef} />;
